@@ -1,0 +1,88 @@
+---
+title: "hw1"
+jupyter: python3
+---
+
+## p. 84 다음 표의 내용을 데이터 프레임으로 만들어 출력해 보세요.
+
+``` {python}
+import pandas as pd
+import numpy as np
+
+# 1번
+df = pd.DataFrame({'제품': ['사과', '딸기', '수박'],
+'가격': [1800, 1500, 3000],
+'판매량': [24, 38, 13]})
+df
+
+# 2번
+sum(df['가격'])/len(df['가격'])
+sum(df['판매량'])/len(df['판매량'])
+
+```
+
+## p. 105 mpg 데이터를 이용해 분석 문제를 해결해 보세요.
+``` {python}
+mpg = pd.read_csv('C:/Users/USER/Documents/LS빅데이터스쿨/lsbigdata-project1/data/mpg.csv')
+
+# 1번
+mpg_new = mpg.copy()
+mpg_new
+
+# 2번
+mpg_new = mpg_new.rename(columns = {'cty' : 'city'})
+mpg_new = mpg_new.rename(columns = {'hwy' : 'highway'})
+
+# 3번
+mpg_new.head()
+
+```
+
+## p. 130 midwest.csv를 이용해 데이터 분석 문제를 해결해 보세요.
+``` {python}
+
+# 1번
+midwest = pd.read_csv('C:/Users/USER/Documents/LS빅데이터스쿨/lsbigdata-project1/data/midwest.csv')
+midwest.head()
+midwest.tail()
+midwest.shape
+midwest.info()
+midwest.describe()
+
+# 2번
+midwest = midwest.rename(columns = {'poptotal' : 'total'})
+midwest = midwest.rename(columns = {'popasian' : 'asian'})
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# 3번
+midwest['전체 인구 대비 아시아 인구 백분율'] = midwest['asian'] / midwest['total'] *100
+midwest['전체 인구 대비 아시아 인구 백분율'].plot.hist()
+plt.show()
+
+# 4번
+midwest['a'] = np.where (midwest['전체 인구 대비 아시아 인구 백분율'] > 0.4872, 'large', 'small')
+midwest['a']
+
+# 5번
+midwest['a'].value_counts()
+count_a = midwest['a'].value_counts()
+count_a.plot.bar(rot=0)
+plt.clf()
+plt.show()
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
