@@ -4,6 +4,9 @@ toc: false
 about:
     id: hero-heading
     template: jolla
+    image: ca.jpg
+    links:
+        - icon: github
 ---
 
 ## 홈페이지 첫 화면입니다
