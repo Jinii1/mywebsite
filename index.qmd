@@ -1,6 +1,9 @@
 ---
 title: "testwebsite"
-jupyter: python3
+toc: false
+about:
+    id: hero-heading
+    template: jolla
 ---
 
 ## 홈페이지 첫 화면입니다
