@@ -1,5 +1,5 @@
 ---
-title: "testwebsite"
+title: "Jinni"
 toc: false
 about:
     id: hero-heading
@@ -7,6 +7,8 @@ about:
     image: ca.jpg
     links:
         - icon: github
+          text: Github
+          href: https://github.com/Jinii1
 ---
 
 ## 홈페이지 첫 화면입니다
