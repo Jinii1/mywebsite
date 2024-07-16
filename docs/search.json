@@ -72,70 +72,70 @@
   {
     "objectID": "hw2.html#q1",
     "href": "hw2.html#q1",
-    "title": "hw1",
+    "title": "hw2",
     "section": "Q1",
     "text": "Q1\n\nimport pandas as pd\nimport numpy as np\nmpg = pd.read_csv('mpg.csv')\nmpg\n\nmpg_d4 = mpg.query('displ &lt;= 4')\nmpg_d5 = mpg.query('displ &gt;= 5')\n\nmpg_d4['hwy'].mean()\nmpg_d5['hwy'].mean()\n\nnp.float64(18.07894736842105)"
   },
   {
     "objectID": "hw2.html#q2",
     "href": "hw2.html#q2",
-    "title": "hw1",
+    "title": "hw2",
     "section": "Q2",
     "text": "Q2\n\nmpg_audi = mpg.query('manufacturer == \"audi\"')\nmpg_toyota = mpg.query('manufacturer == \"toyota\"')\n\nmpg_audi['cty'].mean()\nmpg_toyota['cty'].mean()\n\nnp.float64(18.529411764705884)"
   },
   {
     "objectID": "hw2.html#q3",
     "href": "hw2.html#q3",
-    "title": "hw1",
+    "title": "hw2",
     "section": "Q3",
     "text": "Q3\n\nmpg.query('manufacturer in [\"chevrolet\", \"ford\", \"honda\"]')['hwy'].mean()\n\nnp.float64(22.50943396226415)"
   },
   {
     "objectID": "hw2.html#p.-153",
     "href": "hw2.html#p.-153",
-    "title": "hw1",
+    "title": "hw2",
     "section": "p. 153",
     "text": "p. 153"
   },
   {
     "objectID": "hw2.html#q1-1",
     "href": "hw2.html#q1-1",
-    "title": "hw1",
+    "title": "hw2",
     "section": "Q1",
     "text": "Q1\n\nmpg.query('manufacturer == \"audi\"').sort_values(['hwy'], ascending = False).head()\n\n\n\n\n\n\n\n\nmanufacturer\nmodel\ndispl\nyear\ncyl\ntrans\ndrv\ncty\nhwy\nfl\nclass\n\n\n\n\n2\naudi\na4\n2.0\n2008\n4\nmanual(m6)\nf\n20\n31\np\ncompact\n\n\n3\naudi\na4\n2.0\n2008\n4\nauto(av)\nf\n21\n30\np\ncompact\n\n\n1\naudi\na4\n1.8\n1999\n4\nmanual(m5)\nf\n21\n29\np\ncompact\n\n\n0\naudi\na4\n1.8\n1999\n4\nauto(l5)\nf\n18\n29\np\ncompact\n\n\n9\naudi\na4 quattro\n2.0\n2008\n4\nmanual(m6)\n4\n20\n28\np\ncompact"
   },
   {
     "objectID": "hw2.html#p.-158",
     "href": "hw2.html#p.-158",
-    "title": "hw1",
+    "title": "hw2",
     "section": "p. 158",
     "text": "p. 158"
   },
   {
     "objectID": "hw2.html#q1-2",
     "href": "hw2.html#q1-2",
-    "title": "hw1",
+    "title": "hw2",
     "section": "Q1",
     "text": "Q1\n\nmpg_new = mpg.copy()\nmpg_new = mpg_new.assign(total = mpg_new['cty'] + mpg_new['hwy'])"
   },
   {
     "objectID": "hw2.html#q2-1",
     "href": "hw2.html#q2-1",
-    "title": "hw1",
+    "title": "hw2",
     "section": "Q2",
     "text": "Q2\n\nmpg_new = mpg_new.assign(mean = mpg_new['total'] / 2)"
   },
   {
     "objectID": "hw2.html#q3-1",
     "href": "hw2.html#q3-1",
-    "title": "hw1",
+    "title": "hw2",
     "section": "Q3",
     "text": "Q3\n\nmpg_new.sort_values('mean', ascending = False).head(3)\n\n\n\n\n\n\n\n\nmanufacturer\nmodel\ndispl\nyear\ncyl\ntrans\ndrv\ncty\nhwy\nfl\nclass\ntotal\nmean\n\n\n\n\n221\nvolkswagen\nnew beetle\n1.9\n1999\n4\nmanual(m5)\nf\n35\n44\nd\nsubcompact\n79\n39.5\n\n\n212\nvolkswagen\njetta\n1.9\n1999\n4\nmanual(m5)\nf\n33\n44\nd\ncompact\n77\n38.5\n\n\n222\nvolkswagen\nnew beetle\n1.9\n1999\n4\nauto(l4)\nf\n29\n41\nd\nsubcompact\n70\n35.0"
   },
   {
     "objectID": "hw2.html#q4",
     "href": "hw2.html#q4",
-    "title": "hw1",
+    "title": "hw2",
     "section": "Q4",
     "text": "Q4\n\nmpg.assign(total = lambda x: x['cty'] + x['hwy'],\n           mean = lambda x: x['total'] / 2) \\\n   .sort_values('mean', ascending = False)\\\n   .head(3)\n\n\n\n\n\n\n\n\nmanufacturer\nmodel\ndispl\nyear\ncyl\ntrans\ndrv\ncty\nhwy\nfl\nclass\ntotal\nmean\n\n\n\n\n221\nvolkswagen\nnew beetle\n1.9\n1999\n4\nmanual(m5)\nf\n35\n44\nd\nsubcompact\n79\n39.5\n\n\n212\nvolkswagen\njetta\n1.9\n1999\n4\nmanual(m5)\nf\n33\n44\nd\ncompact\n77\n38.5\n\n\n222\nvolkswagen\nnew beetle\n1.9\n1999\n4\nauto(l4)\nf\n29\n41\nd\nsubcompact\n70\n35.0"
   }
