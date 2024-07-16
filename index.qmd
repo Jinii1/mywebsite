@@ -18,3 +18,9 @@ about:
 
 *안녕하세요 Jinii입니다*
 
+:::{#hero-heading}
+
+## Education
+
+University of Dankook
+College of Business & Economics, Department of Economics | Mar 2020 -
