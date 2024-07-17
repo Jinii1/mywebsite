@@ -13,6 +13,8 @@ website:
         text: hw1
       - href: hw2.qmd
         text: hw2
+      - href: blog.qmd
+        text: Blog
     
 
 format:
