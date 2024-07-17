@@ -104,7 +104,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
+
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -195,8 +198,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#p.-84-다음-표의-내용을-데이터-프레임으로-만들어-출력해-보세요." id="toc-p.-84-다음-표의-내용을-데이터-프레임으로-만들어-출력해-보세요." class="nav-link active" data-scroll-target="#p.-84-다음-표의-내용을-데이터-프레임으로-만들어-출력해-보세요.">p.&nbsp;84 다음 표의 내용을 데이터 프레임으로 만들어 출력해 보세요.</a></li>
+  <li><a href="#q1" id="toc-q1" class="nav-link" data-scroll-target="#q1">Q1</a></li>
+  <li><a href="#q2" id="toc-q2" class="nav-link" data-scroll-target="#q2">Q2</a></li>
   <li><a href="#p.-105-mpg-데이터를-이용해-분석-문제를-해결해-보세요." id="toc-p.-105-mpg-데이터를-이용해-분석-문제를-해결해-보세요." class="nav-link" data-scroll-target="#p.-105-mpg-데이터를-이용해-분석-문제를-해결해-보세요.">p.&nbsp;105 mpg 데이터를 이용해 분석 문제를 해결해 보세요.</a></li>
+  <li><a href="#q1-1" id="toc-q1-1" class="nav-link" data-scroll-target="#q1-1">Q1</a></li>
+  <li><a href="#q2-1" id="toc-q2-1" class="nav-link" data-scroll-target="#q2-1">Q2</a></li>
+  <li><a href="#q3" id="toc-q3" class="nav-link" data-scroll-target="#q3">Q3</a></li>
   <li><a href="#p.-130-midwest.csv를-이용해-데이터-분석-문제를-해결해-보세요." id="toc-p.-130-midwest.csv를-이용해-데이터-분석-문제를-해결해-보세요." class="nav-link" data-scroll-target="#p.-130-midwest.csv를-이용해-데이터-분석-문제를-해결해-보세요.">p.&nbsp;130 midwest.csv를 이용해 데이터 분석 문제를 해결해 보세요.</a></li>
+  <li><a href="#q1-2" id="toc-q1-2" class="nav-link" data-scroll-target="#q1-2">Q1</a></li>
+  <li><a href="#q2-2" id="toc-q2-2" class="nav-link" data-scroll-target="#q2-2">Q2</a></li>
+  <li><a href="#q3-1" id="toc-q3-1" class="nav-link" data-scroll-target="#q3-1">Q3</a></li>
+  <li><a href="#q4" id="toc-q4" class="nav-link" data-scroll-target="#q4">Q4</a></li>
+  <li><a href="#q5" id="toc-q5" class="nav-link" data-scroll-target="#q5">Q5</a></li>
   </ul>
 </nav>
     </div>
@@ -209,39 +222,270 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="p.-84-다음-표의-내용을-데이터-프레임으로-만들어-출력해-보세요." class="level2">
 <h2 class="anchored" data-anchor-id="p.-84-다음-표의-내용을-데이터-프레임으로-만들어-출력해-보세요.">p.&nbsp;84 다음 표의 내용을 데이터 프레임으로 만들어 출력해 보세요.</h2>
-<div id="46609fb8" class="cell" data-execution_count="1">
+</section>
+<section id="q1" class="level2">
+<h2 class="anchored" data-anchor-id="q1">Q1</h2>
+<div id="d520caf3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1번</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'제품'</span>: [<span class="st">'사과'</span>, <span class="st">'딸기'</span>, <span class="st">'수박'</span>],</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">'가격'</span>: [<span class="dv">1800</span>, <span class="dv">1500</span>, <span class="dv">3000</span>],</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">'판매량'</span>: [<span class="dv">24</span>, <span class="dv">38</span>, <span class="dv">13</span>]})</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2번</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(df[<span class="st">'가격'</span>])<span class="op">/</span><span class="bu">len</span>(df[<span class="st">'가격'</span>])</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(df[<span class="st">'판매량'</span>])<span class="op">/</span><span class="bu">len</span>(df[<span class="st">'판매량'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'제품'</span>: [<span class="st">'사과'</span>, <span class="st">'딸기'</span>, <span class="st">'수박'</span>],</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">'가격'</span>: [<span class="dv">1800</span>, <span class="dv">1500</span>, <span class="dv">3000</span>],</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">'판매량'</span>: [<span class="dv">24</span>, <span class="dv">38</span>, <span class="dv">13</span>]})</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">제품</th>
+<th data-quarto-table-cell-role="th">가격</th>
+<th data-quarto-table-cell-role="th">판매량</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>사과</td>
+<td>1800</td>
+<td>24</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>딸기</td>
+<td>1500</td>
+<td>38</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>수박</td>
+<td>3000</td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="q2" class="level2">
+<h2 class="anchored" data-anchor-id="q2">Q2</h2>
+<div id="7c05772d" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(df[<span class="st">'가격'</span>])<span class="op">/</span><span class="bu">len</span>(df[<span class="st">'가격'</span>])</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(df[<span class="st">'판매량'</span>])<span class="op">/</span><span class="bu">len</span>(df[<span class="st">'판매량'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>25.0</code></pre>
 </div>
 </div>
 </section>
 <section id="p.-105-mpg-데이터를-이용해-분석-문제를-해결해-보세요." class="level2">
 <h2 class="anchored" data-anchor-id="p.-105-mpg-데이터를-이용해-분석-문제를-해결해-보세요.">p.&nbsp;105 mpg 데이터를 이용해 분석 문제를 해결해 보세요.</h2>
-<div id="7cf81507" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="op">=</span> pd.read_csv(<span class="st">'C:/Users/USER/Documents/LS빅데이터스쿨/lsbigdata-project1/data/mpg.csv'</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1번</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>mpg_new <span class="op">=</span> mpg.copy()</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>mpg_new</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2번</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>mpg_new <span class="op">=</span> mpg_new.rename(columns <span class="op">=</span> {<span class="st">'cty'</span> : <span class="st">'city'</span>})</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>mpg_new <span class="op">=</span> mpg_new.rename(columns <span class="op">=</span> {<span class="st">'hwy'</span> : <span class="st">'highway'</span>})</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 3번</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>mpg_new.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="q1-1" class="level2">
+<h2 class="anchored" data-anchor-id="q1-1">Q1</h2>
+<div id="53f78e16" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="op">=</span> pd.read_csv(<span class="st">'C:/Users/USER/Documents/LS빅데이터스쿨/lsbigdata-project1/data/mpg.csv'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mpg_new <span class="op">=</span> mpg.copy()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>mpg_new</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">manufacturer</th>
+<th data-quarto-table-cell-role="th">model</th>
+<th data-quarto-table-cell-role="th">displ</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">cyl</th>
+<th data-quarto-table-cell-role="th">trans</th>
+<th data-quarto-table-cell-role="th">drv</th>
+<th data-quarto-table-cell-role="th">cty</th>
+<th data-quarto-table-cell-role="th">hwy</th>
+<th data-quarto-table-cell-role="th">fl</th>
+<th data-quarto-table-cell-role="th">class</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>audi</td>
+<td>a4</td>
+<td>1.8</td>
+<td>1999</td>
+<td>4</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>18</td>
+<td>29</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>audi</td>
+<td>a4</td>
+<td>1.8</td>
+<td>1999</td>
+<td>4</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>21</td>
+<td>29</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>manual(m6)</td>
+<td>f</td>
+<td>20</td>
+<td>31</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>auto(av)</td>
+<td>f</td>
+<td>21</td>
+<td>30</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.8</td>
+<td>1999</td>
+<td>6</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>16</td>
+<td>26</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">229</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>auto(s6)</td>
+<td>f</td>
+<td>19</td>
+<td>28</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">230</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>manual(m6)</td>
+<td>f</td>
+<td>21</td>
+<td>29</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">231</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.8</td>
+<td>1999</td>
+<td>6</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>16</td>
+<td>26</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">232</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.8</td>
+<td>1999</td>
+<td>6</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>18</td>
+<td>26</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">233</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>3.6</td>
+<td>2008</td>
+<td>6</td>
+<td>auto(s6)</td>
+<td>f</td>
+<td>17</td>
+<td>26</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+</tbody>
+</table>
+
+<p>234 rows × 11 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="q2-1" class="level2">
+<h2 class="anchored" data-anchor-id="q2-1">Q2</h2>
+<div id="91e082a4" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mpg_new <span class="op">=</span> mpg_new.rename(columns <span class="op">=</span> {<span class="st">'cty'</span> : <span class="st">'city'</span>})</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mpg_new <span class="op">=</span> mpg_new.rename(columns <span class="op">=</span> {<span class="st">'hwy'</span> : <span class="st">'highway'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="q3" class="level2">
+<h2 class="anchored" data-anchor-id="q3">Q3</h2>
+<div id="04079a55" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mpg_new.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
@@ -343,37 +587,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="p.-130-midwest.csv를-이용해-데이터-분석-문제를-해결해-보세요." class="level2">
 <h2 class="anchored" data-anchor-id="p.-130-midwest.csv를-이용해-데이터-분석-문제를-해결해-보세요.">p.&nbsp;130 midwest.csv를 이용해 데이터 분석 문제를 해결해 보세요.</h2>
-<div id="e18c2934" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1번</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>midwest <span class="op">=</span> pd.read_csv(<span class="st">'C:/Users/USER/Documents/LS빅데이터스쿨/lsbigdata-project1/data/midwest.csv'</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>midwest.head()</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>midwest.tail()</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>midwest.shape</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>midwest.info()</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>midwest.describe()</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2번</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>midwest <span class="op">=</span> midwest.rename(columns <span class="op">=</span> {<span class="st">'poptotal'</span> : <span class="st">'total'</span>})</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>midwest <span class="op">=</span> midwest.rename(columns <span class="op">=</span> {<span class="st">'popasian'</span> : <span class="st">'asian'</span>})</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 3번</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>midwest[<span class="st">'전체 인구 대비 아시아 인구 백분율'</span>] <span class="op">=</span> midwest[<span class="st">'asian'</span>] <span class="op">/</span> midwest[<span class="st">'total'</span>] <span class="op">*</span><span class="dv">100</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>midwest[<span class="st">'전체 인구 대비 아시아 인구 백분율'</span>].plot.hist()</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 4번</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>midwest[<span class="st">'a'</span>] <span class="op">=</span> np.where (midwest[<span class="st">'전체 인구 대비 아시아 인구 백분율'</span>] <span class="op">&gt;</span> <span class="fl">0.4872</span>, <span class="st">'large'</span>, <span class="st">'small'</span>)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>midwest[<span class="st">'a'</span>]</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 5번</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>midwest[<span class="st">'a'</span>].value_counts()</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>count_a <span class="op">=</span> midwest[<span class="st">'a'</span>].value_counts()</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>count_a.plot.bar(rot<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="q1-2" class="level2">
+<h2 class="anchored" data-anchor-id="q1-2">Q1</h2>
+<div id="dec7d1d9" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>midwest <span class="op">=</span> pd.read_csv(<span class="st">'C:/Users/USER/Documents/LS빅데이터스쿨/lsbigdata-project1/data/midwest.csv'</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>midwest.head()</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>midwest.tail()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>midwest.shape</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>midwest.info()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>midwest.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 437 entries, 0 to 436
@@ -411,13 +634,292 @@ Data columns (total 28 columns):
 dtypes: float64(15), int64(10), object(3)
 memory usage: 95.7+ KB</code></pre>
 </div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">PID</th>
+<th data-quarto-table-cell-role="th">area</th>
+<th data-quarto-table-cell-role="th">poptotal</th>
+<th data-quarto-table-cell-role="th">popdensity</th>
+<th data-quarto-table-cell-role="th">popwhite</th>
+<th data-quarto-table-cell-role="th">popblack</th>
+<th data-quarto-table-cell-role="th">popamerindian</th>
+<th data-quarto-table-cell-role="th">popasian</th>
+<th data-quarto-table-cell-role="th">popother</th>
+<th data-quarto-table-cell-role="th">percwhite</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">perchsd</th>
+<th data-quarto-table-cell-role="th">percollege</th>
+<th data-quarto-table-cell-role="th">percprof</th>
+<th data-quarto-table-cell-role="th">poppovertyknown</th>
+<th data-quarto-table-cell-role="th">percpovertyknown</th>
+<th data-quarto-table-cell-role="th">percbelowpoverty</th>
+<th data-quarto-table-cell-role="th">percchildbelowpovert</th>
+<th data-quarto-table-cell-role="th">percadultpoverty</th>
+<th data-quarto-table-cell-role="th">percelderlypoverty</th>
+<th data-quarto-table-cell-role="th">inmetro</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>437.000000</td>
+<td>437.000000</td>
+<td>4.370000e+02</td>
+<td>437.000000</td>
+<td>4.370000e+02</td>
+<td>4.370000e+02</td>
+<td>437.000000</td>
+<td>437.000000</td>
+<td>437.000000</td>
+<td>437.000000</td>
+<td>...</td>
+<td>437.000000</td>
+<td>437.000000</td>
+<td>437.000000</td>
+<td>4.370000e+02</td>
+<td>437.000000</td>
+<td>437.000000</td>
+<td>437.000000</td>
+<td>437.000000</td>
+<td>437.000000</td>
+<td>437.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>1437.338673</td>
+<td>0.033169</td>
+<td>9.613030e+04</td>
+<td>3097.742985</td>
+<td>8.183992e+04</td>
+<td>1.102388e+04</td>
+<td>343.109840</td>
+<td>1310.464531</td>
+<td>1612.931350</td>
+<td>95.558441</td>
+<td>...</td>
+<td>73.965546</td>
+<td>18.272736</td>
+<td>4.447259</td>
+<td>9.364228e+04</td>
+<td>97.110267</td>
+<td>12.510505</td>
+<td>16.447464</td>
+<td>10.918798</td>
+<td>11.389043</td>
+<td>0.343249</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>876.390266</td>
+<td>0.014679</td>
+<td>2.981705e+05</td>
+<td>7664.751786</td>
+<td>2.001966e+05</td>
+<td>7.895827e+04</td>
+<td>868.926751</td>
+<td>9518.394189</td>
+<td>18526.540699</td>
+<td>7.087358</td>
+<td>...</td>
+<td>5.843177</td>
+<td>6.261908</td>
+<td>2.408427</td>
+<td>2.932351e+05</td>
+<td>2.749863</td>
+<td>5.150155</td>
+<td>7.228634</td>
+<td>5.109166</td>
+<td>3.661259</td>
+<td>0.475338</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>561.000000</td>
+<td>0.005000</td>
+<td>1.701000e+03</td>
+<td>85.050000</td>
+<td>4.160000e+02</td>
+<td>0.000000e+00</td>
+<td>4.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>10.694087</td>
+<td>...</td>
+<td>46.912261</td>
+<td>7.336108</td>
+<td>0.520291</td>
+<td>1.696000e+03</td>
+<td>80.902441</td>
+<td>2.180168</td>
+<td>1.918955</td>
+<td>1.938504</td>
+<td>3.547067</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>670.000000</td>
+<td>0.024000</td>
+<td>1.884000e+04</td>
+<td>622.407407</td>
+<td>1.863000e+04</td>
+<td>2.900000e+01</td>
+<td>44.000000</td>
+<td>35.000000</td>
+<td>20.000000</td>
+<td>94.886032</td>
+<td>...</td>
+<td>71.325329</td>
+<td>14.113725</td>
+<td>2.997957</td>
+<td>1.836400e+04</td>
+<td>96.894572</td>
+<td>9.198715</td>
+<td>11.624088</td>
+<td>7.668009</td>
+<td>8.911763</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>1221.000000</td>
+<td>0.030000</td>
+<td>3.532400e+04</td>
+<td>1156.208330</td>
+<td>3.447100e+04</td>
+<td>2.010000e+02</td>
+<td>94.000000</td>
+<td>102.000000</td>
+<td>66.000000</td>
+<td>98.032742</td>
+<td>...</td>
+<td>74.246891</td>
+<td>16.797562</td>
+<td>3.814239</td>
+<td>3.378800e+04</td>
+<td>98.169562</td>
+<td>11.822313</td>
+<td>15.270164</td>
+<td>10.007610</td>
+<td>10.869119</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>2059.000000</td>
+<td>0.038000</td>
+<td>7.565100e+04</td>
+<td>2330.000000</td>
+<td>7.296800e+04</td>
+<td>1.291000e+03</td>
+<td>288.000000</td>
+<td>401.000000</td>
+<td>345.000000</td>
+<td>99.074935</td>
+<td>...</td>
+<td>77.195345</td>
+<td>20.549893</td>
+<td>4.949324</td>
+<td>7.284000e+04</td>
+<td>98.598636</td>
+<td>15.133226</td>
+<td>20.351878</td>
+<td>13.182182</td>
+<td>13.412162</td>
+<td>1.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>3052.000000</td>
+<td>0.110000</td>
+<td>5.105067e+06</td>
+<td>88018.396600</td>
+<td>3.204947e+06</td>
+<td>1.317147e+06</td>
+<td>10289.000000</td>
+<td>188565.000000</td>
+<td>384119.000000</td>
+<td>99.822821</td>
+<td>...</td>
+<td>88.898674</td>
+<td>48.078510</td>
+<td>20.791321</td>
+<td>5.023523e+06</td>
+<td>99.860384</td>
+<td>48.691099</td>
+<td>64.308477</td>
+<td>43.312464</td>
+<td>31.161972</td>
+<td>1.000000</td>
+</tr>
+</tbody>
+</table>
+
+<p>8 rows × 25 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="q2-2" class="level2">
+<h2 class="anchored" data-anchor-id="q2-2">Q2</h2>
+<div id="408b6e8b" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>midwest <span class="op">=</span> midwest.rename(columns <span class="op">=</span> {<span class="st">'poptotal'</span> : <span class="st">'total'</span>})</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>midwest <span class="op">=</span> midwest.rename(columns <span class="op">=</span> {<span class="st">'popasian'</span> : <span class="st">'asian'</span>})</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="q3-1" class="level2">
+<h2 class="anchored" data-anchor-id="q3-1">Q3</h2>
+<div id="cb6d1bc6" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>midwest[<span class="st">'전체 인구 대비 아시아 인구 백분율'</span>] <span class="op">=</span> midwest[<span class="st">'asian'</span>] <span class="op">/</span> midwest[<span class="st">'total'</span>] <span class="op">*</span><span class="dv">100</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>midwest[<span class="st">'전체 인구 대비 아시아 인구 백분율'</span>].plot.hist()</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/cell-4-output-2.png" width="593" height="411" class="figure-img"></p>
+<p><img src="index_files/figure-html/cell-9-output-1.png" width="593" height="411" class="figure-img"></p>
 </figure>
 </div>
 </div>
+</div>
+</section>
+<section id="q4" class="level2">
+<h2 class="anchored" data-anchor-id="q4">Q4</h2>
+<div id="ebdbb1d0" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>midwest[<span class="st">'a'</span>] <span class="op">=</span> np.where (midwest[<span class="st">'전체 인구 대비 아시아 인구 백분율'</span>] <span class="op">&gt;</span> <span class="fl">0.4872</span>, <span class="st">'large'</span>, <span class="st">'small'</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>midwest[<span class="st">'a'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>0      small
+1      small
+2      small
+3      small
+4      small
+       ...  
+432    large
+433    small
+434    small
+435    large
+436    large
+Name: a, Length: 437, dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="q5" class="level2">
+<h2 class="anchored" data-anchor-id="q5">Q5</h2>
+<div id="87e9a8b7" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>midwest[<span class="st">'a'</span>].value_counts()</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>count_a <span class="op">=</span> midwest[<span class="st">'a'</span>].value_counts()</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>count_a.plot.bar(rot<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
 </div>
