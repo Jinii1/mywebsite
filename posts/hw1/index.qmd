@@ -1,5 +1,8 @@
 ---
-title: "hw1"
+title: "LS 빅데이터 스쿨 Homework 1"
+author: Jinii
+date: '2024-07-15'
+categories: [bigdata]
 jupyter: python3
 ---
 
