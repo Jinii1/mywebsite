@@ -1,0 +1,154 @@
+---
+title: "LS 빅데이터 스쿨 Homework 3"
+author: Jinii
+date: '2024-07-22'
+categories: [bigdata]
+jupyter: python3
+---
+
+## p. 204
+
+## Q1
+``` {python}
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+mpg = pd.read_csv('C:/Users/USER/Documents/LS빅데이터스쿨/Doit_Python/Data/mpg.csv')
+sns.scatterplot(data = mpg, x = 'cty', y = 'hwy')
+plt.clf()
+plt.show()
+
+```
+
+## Q2
+``` {python}
+midwest = pd.read_csv('C:/Users/USER/Documents/LS빅데이터스쿨/lsbigdata-project1/data/midwest.csv')
+midwest
+import seaborn as sns
+plt.clf()
+midwest['poptotal']
+midwest['popasian']
+plt.clf()
+sns.scatterplot(data = midwest, x = 'poptotal', y = 'popasian') \
+   .set(xlim = [0, 500000], ylim = [0, 10000])
+plt.show()
+
+```
+
+
+## p. 211
+
+## Q1
+``` {python}
+mpg
+plt.clf()
+df = mpg.query('category == "suv"') \
+        .groupby('manufacturer', as_index = False) \
+        .agg(mean_cty = ('cty', 'mean')) \
+        .sort_values('mean_cty', ascending = False) \
+        .head()
+
+df
+
+import seaborn as sns
+sns.barplot(data = df, x = 'manufacturer', y = 'mean_cty')
+plt.show()
+
+```
+
+## Q2
+``` {python}
+df_mpg = mpg.groupby('category', as_index = False) \
+            .agg(n = ('category', 'count')) \
+            .sort_values('n', ascending = False)
+df_mpg
+
+plt.clf()
+import seaborn as sns
+sns.barplot(data= df_mpg, x = 'category', y = 'n')
+
+```
+
+
+### 'barplot()' 사용하기
+
+## 데이터 전처리하기
+
+```{python}
+import pandas as pd
+mpg = pd.read_csv('C:/Users/USER/Documents/LS빅데이터스쿨/lsbigdata-project1/data/mpg.csv')
+mpg
+mpg.shape
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+```
+
+## 산점도 그리기
+
+```{python}
+sns.scatterplot(data = mpg, x = 'displ', y = 'hwy',
+                            hue = 'drv') \
+   .set(xlim = [3, 6], ylim = [10, 30])
+plt.show()
+plt.clf()
+
+```
+##barplot 이용하여 그래프 만들기
+
+``` {python}
+df_mpg = mpg.groupby('drv', as_index = False) \
+    .agg(mean_hwy=('hwy', 'mean')) # as_index = False -> drv가 컬럼이 돼서 나온다
+sns.barplot(data = df_mpg.sort_values('mean_hwy'),
+            x = 'drv', y = 'mean_hwy',
+            hue = 'drv')
+plt.show()
+plt.clf()
+
+```
+
+## 데이터 전처리하기
+
+``` {python}
+df_mpg = mpg.groupby('drv', as_index = False) \
+            .agg(n = ('drv', 'count'))
+df_mpg
+
+```
+
+## barplot 사용해서 그래프 그리기
+
+``` {python}
+plt.clf()
+sns.barplot(data = df_mpg, x = 'drv', y = 'n', hue = 'drv')
+plt.show()
+
+```
+## countplot 이용해서 그래프 그리기
+
+``` {python}
+plt.clf()
+sns.countplot(data = mpg, x = 'drv', hue = 'drv')
+plt.show()
+
+```
+
+## plotly를 사용한 산점도
+
+```{python}
+mpg
+mpg.info()
+import plotly.express as px
+px.scatter(data_frame = mpg, x = 'cty', y = 'hwy', color = 'drv')
+
+```
+
+``` {python}
+df = mpg.groupby('class', as_index = False) \
+        .agg(n = ('class', 'count'))
+df
+
+px.bar(data_frame = df, x = 'class', y = 'n', color = 'class')  
+
+```
