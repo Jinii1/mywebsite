@@ -1,0 +1,364 @@
+---
+title: "project1 - 기역조"
+author: "강남규, 권효은, 김연예진, 김연진"
+date: "2024-07-24"
+categories: [project]
+---
+
+# 주제
+**대한민국 연령별, 지역별 출생율 비교분석**
+
+# 분석배경
+- 저조한 출산율
+
+- 전국적 vs. 국지적 현상 궁금증
+
+# 분석목표
+
+**1. 과거와 현재 청년층과 비청년층 사이에 출산율이 어떻게 변했을까?**
+
+**2. 전국 평균 대비 시도별 청년층의 출산율 비교** 
+
+# 데이터
+
+- kosis에서 제공하는 '시도/합계출산율, 모의 연령별 출산율' 데이터를 이용
+  [kosis](https://kosis.kr/statHtml/statHtml.do?orgId=101&tblId=DT_1B81A21&vw_cd=MT_ZTITLE&list_id=A21&scrId=&seqNo=&lang_mode=ko&obj_var_id=&itm_id=&conn_path=MT_ZTITLE&path=%252FstatisticsList%252FstatisticsListIndex.dot)
+
+- 청년층은 20~34세, 나머지는 비청년층으로 구분
+
+- 세종특별자치시 데이터가 생긴 12년도 이후 데이터를 이용
+
+# 용어정리
+
+**모의연령출산율** : 모의 연령별 당해연도의 출생아수를 당해연령의 여자인구로 나눈 비율을 1,000분비로 나타낸 것
+
+# 데이터 전처리 코드
+
+**원본 데이터 불러오기 및 리스트 초기화**
+
+```{python}
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv("C:/Users/USER/Desktop/proj1/bs.csv")
+before_name = []
+after_name = []
+lst_mean12_19 = []
+
+df
+```
+
+1. `before_name`: 변경 전 이름 List
+2. `after_name`: 변경 후 이름 List
+3. `lst_mean12_19`: 12 ~ 19년도 청년층의 시도별 모의 출산율 평균 Series List
+
+**이름 변경을 위한 문자열 추가**
+
+EX) "2020" → "20_1519": 20년도 15 ~ 19세
+
+"2020.1" → "20_2024": 20년도 20 ~ 24세
+
+
+```{python}
+for i in range(12, 23):
+  before_name.append("20" + str(i))
+  before_name.append("20" + str(i) + ".1")
+  before_name.append("20" + str(i) + ".2")
+  before_name.append("20" + str(i) + ".3")
+  before_name.append("20" + str(i) + ".4")
+  before_name.append("20" + str(i) + ".5")
+  before_name.append("20" + str(i) + ".6")
+  after_name.append(str(i) + "_1519")
+  after_name.append(str(i) + "_2024")
+  after_name.append(str(i) + "_2529")
+  after_name.append(str(i) + "_3034")
+  after_name.append(str(i) + "_3539")
+  after_name.append(str(i) + "_4044")
+  after_name.append(str(i) + "_4549")
+
+print("before_name: " + str(before_name) + "\n" + "after_name: " + str(after_name))
+```
+
+**복사본 br을 만들고, 열을 통합하기 위해 0번 열을 제거함**
+
+EX) 2020 + 15 ~ 19세 → 20_1519
+
+0번 열을 제거하여 1번부터 시작하므로, 추후 인덱싱 작업을 위해 `.reset_index`을 사용하여 재정렬
+
+```{python}
+br = df.copy()
+br.drop(0, inplace = True)
+br.reset_index(drop = True, inplace = True)
+br
+```
+
+**의미를 통합하기 위해, 전체 열의 이름을 변경**
+
+`before_name`의 길이 만큼 구문을 반복 (`len(before_name) = 77`이므로, `i`에는 0에서 77까지의 수가 들어감)
+
+EX) br의 열 이름이 `before_name[0]`에서 `after_name[0]`으로 변경 "2020" → "20_1519"
+
+```{python}
+for i in range(0, len(before_name)):
+  br.rename(columns = {before_name[i] : after_name[i]}, inplace = True)
+
+print(br.head(5))
+```
+
+**데이터의 타입이 문자열이므로, 계산을 위해 Type을 float64로 변경함**
+
+```{python}
+br[after_name] = br[after_name].apply(pd.to_numeric)
+
+type(br["12_1519"][6])
+
+```
+
+**20 ~ 22년까지 최근 3년의 청년층(20 ~ 34세) 모의 연령별 출산율의 평균을 계산하여 열로 추가**
+
+```{python}
+br = br.assign(
+  mean20 = (br["20_2024"] + br["20_2529"] + br["20_3034"]) / 3,
+  mean21 = (br["21_2024"] + br["21_2529"] + br["21_3034"]) / 3,
+  mean22 = (br["22_2024"] + br["22_2529"] + br["22_3034"]) / 3)
+  
+br.head(5)
+br
+
+```
+
+**2012 ~ 2019년까지의 청년층 평균은 중간 계산을 위한 데이터이므로, 열로 추가하지 않고 List로 보관 (각 요소는 Series)**
+
+`range(0, 56, 7)` Start: 0, End: 55, Step: 7이므로 0, 7, 14, 21 ...이 `i`로 들어감
+
+1519, 2024, 2529, 3034, 3539, 4044, 4549 연령 구간이 총 7개이므로, `i`가 1519 인덱스에 있을 때 `i + 1`(2024), `i + 2`(2529) `i + 3`(3034)을 해야 청년층에 해당하는 이름을 가져올 수 있음
+
+처음 `i = 0`일 때 12년도를 계산하고, 다음 `i = 7`에서는 13년도 계산을 수행함
+
+EX) 12년도의 청년층 평균 계산: "12_1519" + "12_2024" + "12_2529" / 3
+
+결과로 나온 평균을 `lst_mean12_19` 리스트에 요소로 추가
+
+따라서, `lst_mean12_19`에는 **12 ~ 19년도 청년층의 시도별 모의 출산율 평균 Series List**가 들어 있음
+
+(`br["mean12"]`, `br["mean13"]`, `br["mean14"]` ...에 해당하는 Series를 열로 추가하지 않고 리스트에 보관했다고 생각)
+
+```{python}
+for i in range(0, 56, 7):
+  lst_mean12_19.append((br[after_name[i + 1]] + br[after_name[i + 2]] + br[after_name[i + 3]]) / 3)
+
+lst_mean12_19
+```
+
+**각 시도별 청년층 모의 출산율의 평균이 전국 청년층 평균과 비교하여 큰지 작은지 비교**
+
+12 ~ 19년은 `lst_mean12_19` 리스트를 활용해 계산
+
+`range(12, 20)`으로 `i`에 12, 13, 14, ... 19가 들어감
+
+"compare12" ~ "compare19" 열을 추가하고, 시도별 평균과 전체 평균을 비교함
+
+EX) `i = 12`일 때
+    `lst_mean12_19[0].mean() <= lst_mean12_19[0]`: 12년도 전체 평균(숫자) <= 12년도 시도별 평균(Series)을 비교함
+
+```{python}
+for i in range(12, 20):
+  br["compare" + str(i)] = np.where(lst_mean12_19[i - 12][0] < lst_mean12_19[i - 12], "large",
+                           np.where(lst_mean12_19[i - 12][0] == lst_mean12_19[i - 12], "whole", "small"))
+
+print(br.head(5))
+```
+
+**최근 3년의 평균은 List가 아닌 DataFrame의 열로 가지고 있으므로, 추출하여 비교 계산**
+    
+```{python}
+br["compare20"] = np.where(br["mean20"][0] < br["mean20"], "large",
+                  np.where(br["mean20"][0] == br["mean20"], "whole", "small"))
+br["compare21"] = np.where(br["mean21"][0] < br["mean21"], "large",
+                  np.where(br["mean21"][0] == br["mean21"], "whole", "small"))
+br["compare22"] = np.where(br["mean22"][0] < br["mean22"], "large",
+                  np.where(br["mean22"][0] == br["mean22"], "whole", "small"))
+
+br.head(5)
+```
+
+
+```{python}
+br
+```
+
+
+# 분석1
+## Q 8년동안 청년층과 비청년층 사이에 출산율이 어떻게 변했을까?
+
+**20-22년도 데이터 추출**
+
+- 전국 모의연령별 출산율 비교를 위한 iloc 활용
+- 기간: 2020~2022
+- 그룹: 청년 / 비청년
+
+``` {python}
+br2 = br.iloc[[0]]
+type(br2["21_2024"][0])
+br2.info()
+br2 = br2.iloc[:, 57:78] 
+
+
+br2
+
+```
+
+
+**보기 쉽게 만들기 위해 행렬을 뒤집는 transpose 함수 사용**
+
+``` {python}
+br2 = br2.transpose()
+br2
+
+```
+**새로운 변수명 설정**
+
+- 0 -> birth_rate(모의연령별 출산율)
+- 비어있는열 -> year
+
+``` {python}
+br2 = br2.rename(columns = {0 : 'birth_rate'})
+br2 = br2.rename_axis(columns = {'' : 'year'}, index = None)
+br2
+br2 = br2.reset_index().rename(columns={'index': 'year'})
+
+```
+
+**np.where함수로 청년층과 비청년층 구분**
+
+- 청년층: 1, 비청년층: 2 할당
+
+```{python}
+br2['number'] = np.where(br2['year']\
+                  .isin(['20_2024', '20_2529', '20_3034', '21_2024', '21_2529', '21_3034', '22_2024', '22_2529', '22_3034']), 1, 2)
+br2
+                  
+```
+### 청년, 비청년 출산율비교
+
+**20~22년 청년 비청년 모의 출산율**
+
+청년층의 출산율을 알아보기 위해서는 br2 데이터에서 number == 1를 추출하여 평균을 구함
+비청년도 같은 방식으로 진행
+
+
+``` {python}
+
+br2_youth_rate = br2.query('number == 1')['birth_rate'].mean()
+br2_non_youth_rate = br2.query('number == 2')['birth_rate'].mean()
+
+print('청년: ', br2_youth_rate)
+print('비청년: ', br2_non_youth_rate)
+
+```
+
+
+**12~14년 청년 비청년 모의 출산율**
+
+```{python}
+br3= br.iloc[:, 1:21] ## 12-14년도 데이터 추출
+br3 = br3.iloc[[0]]
+
+br3 = br3.transpose()
+
+br3 = br3.rename(columns = {0 : 'birth_rate'})
+br3 = br3.rename_axis(columns = {'' : 'year'}, index = None)
+br3 = br3.reset_index().rename(columns={'index': 'year'})
+
+br3['number'] = np.where(br3['year']\
+                  .isin(['12_2024', '12_2529', '12_3034', '13_2024', '13_2529', '13_3034', '14_2024', '14_2529', '14_3034']), 1, 2)
+
+
+br3_youth_rate = br3.query('number == 1')['birth_rate'].mean()
+br3_non_youth_rate = br3.query('number == 2')['birth_rate'].mean()
+
+print('청년: ', br3_youth_rate)
+print('비청년: ', br3_non_youth_rate)
+
+```
+
+**그래프 표현**
+
+
+```{python}
+import matplotlib.pyplot as plt
+import seaborn as sns
+colors = ['orchid', 'lightpink', 'palevioletred', 'hotpink', 'plum', 'thistle']
+
+sns.barplot(x=['12_14Youth', '20_22Youth','12_14Non-Youth', '20_22Non-Youth'], y=[br3_youth_rate,br2_youth_rate, br3_non_youth_rate, br2_non_youth_rate], palette=colors)
+plt.xlabel('Age Group', fontsize=12)
+plt.ylabel('Mean Birth Rate', fontsize=12)
+plt.title('12-14/20-22 Mean Birth Rate Comparison', fontsize=15)
+plt.show()
+```
+
+
+## 결과
+**- 과거대비 청년층의 출산율 감소**
+
+**- 비청년층 출산율 변화 없음**
+
+# 분석2
+## Q 전국 평균 대비 시도별 청년층의 출산율 비교
+
+**청년층의 출산율이 높은 지역 상위5 & 하위5**
+
+```{python}
+print(br[['시군구별', "mean20"]].sort_values("mean20", ascending = False).head(), "\n", "-------------------------")
+print(br[['시군구별', "mean21"]].sort_values("mean21", ascending = False).head(), "\n", "-------------------------")
+print(br[['시군구별', "mean22"]].sort_values("mean22", ascending = False).head(), "\n", "--------------------------")
+
+print(br[['시군구별', "mean20"]].sort_values("mean20").head(), "\n", "--------------------------")
+print(br[['시군구별', "mean21"]].sort_values("mean21").head(), "\n", "--------------------------")
+print(br[['시군구별', "mean22"]].sort_values("mean22").head())
+
+```
+
+**각 도시 청년층의 평균모의출산율 그래프**
+
+
+```{python}
+import seaborn as sns
+new = br[['시군구별', 'mean20']].sort_values("mean20", ascending=False)
+plt.figure(figsize=(7, 3))
+sns.barplot(data=new, x='시군구별', y='mean20', palette=colors)
+plt.xticks(rotation=45)  
+plt.xlabel('시군구별', fontsize=12)
+plt.ylabel('Mean Birth Rate 2020', fontsize=12)
+plt.title('Mean Birth Rate  2020년도 시군구별 ', fontsize=15)
+plt.show()
+```
+```{python}
+new = br[['시군구별', 'mean21']].sort_values("mean21", ascending=False)
+plt.figure(figsize=(7, 3))
+sns.barplot(data=new, x='시군구별', y='mean21', palette=colors)
+plt.xticks(rotation=45)  
+plt.xlabel('시군구별', fontsize=12)
+plt.ylabel('Mean Birth Rate 2021', fontsize=12)
+plt.title('Mean Birth Rate  2021년도 시군구별 ', fontsize=15)
+plt.show()
+```
+
+```{python}
+new = br[['시군구별', 'mean22']].sort_values("mean22", ascending=False)
+plt.figure(figsize=(7, 3))
+sns.barplot(data=new, x='시군구별', y='mean22', palette=colors)
+plt.xticks(rotation=45)  
+plt.xlabel('시군구별', fontsize=12)
+plt.ylabel('Mean Birth Rate 2022', fontsize=12)
+plt.title('Mean Birth Rate  2022년도 시군구별 ', fontsize=15)
+plt.show()
+```
+
+## 결과
+
+- 가장 높은 출산율을 보여주는 도시 =  세종특별자치시
+- 가장 낮은 출산율을 보여주는 도시 = 서울특별시
+
+
+### 총론
