@@ -151,7 +151,7 @@
     "href": "blog.html",
     "title": "myblog",
     "section": "",
-    "text": "LS 빅데이터 스쿨 Homework 3\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 22, 2024\n\n\nJinii\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJul 17, 2024\n\n\nJinii\n\n\n\n\n\n\n\n\n\n\n\n\nLS 빅데이터 스쿨 Homework 2\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 16, 2024\n\n\nJinii\n\n\n\n\n\n\n\n\n\n\n\n\nLS 빅데이터 스쿨 Homework 1\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 15, 2024\n\n\nJinii\n\n\n\n\n\n\nNo matching items"
+    "text": "LS 빅데이터 스쿨 Homework 3\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 22, 2024\n\n\nJinii\n\n\n\n\n\n\n\n\n\n\n\n\nLS 빅데이터 스쿨 Homework 2\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 16, 2024\n\n\nJinii\n\n\n\n\n\n\n\n\n\n\n\n\nLS 빅데이터 스쿨 Homework 1\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 15, 2024\n\n\nJinii\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/hw1/index.html",
@@ -831,5 +831,89 @@
     "title": "LS 빅데이터 스쿨 Homework 2",
     "section": "Q4",
     "text": "Q4\n\nmpg.assign(total = lambda x: x['cty'] + x['hwy'],\n           mean = lambda x: x['total'] / 2) \\\n   .sort_values('mean', ascending = False)\\\n   .head(3)\n\n\n\n\n\n\n\n\nmanufacturer\nmodel\ndispl\nyear\ncyl\ntrans\ndrv\ncty\nhwy\nfl\ncategory\ntotal\nmean\n\n\n\n\n221\nvolkswagen\nnew beetle\n1.9\n1999\n4\nmanual(m5)\nf\n35\n44\nd\nsubcompact\n79\n39.5\n\n\n212\nvolkswagen\njetta\n1.9\n1999\n4\nmanual(m5)\nf\n33\n44\nd\ncompact\n77\n38.5\n\n\n222\nvolkswagen\nnew beetle\n1.9\n1999\n4\nauto(l4)\nf\n29\n41\nd\nsubcompact\n70\n35.0"
+  },
+  {
+    "objectID": "test/index.html",
+    "href": "test/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!"
+  },
+  {
+    "objectID": "posts/hw3/hw3.html#q1",
+    "href": "posts/hw3/hw3.html#q1",
+    "title": "LS 빅데이터 스쿨 Homework 3",
+    "section": "Q1",
+    "text": "Q1\n\nimport pandas as pd\nimport numpy as np\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nmpg = pd.read_csv('C:/Users/USER/Documents/LS빅데이터스쿨/Doit_Python/Data/mpg.csv')\nsns.scatterplot(data = mpg, x = 'cty', y = 'hwy')\nplt.clf()\nplt.show()\n\n&lt;Figure size 672x480 with 0 Axes&gt;"
+  },
+  {
+    "objectID": "posts/hw3/hw3.html#q2",
+    "href": "posts/hw3/hw3.html#q2",
+    "title": "LS 빅데이터 스쿨 Homework 3",
+    "section": "Q2",
+    "text": "Q2\n\nmidwest = pd.read_csv('C:/Users/USER/Documents/LS빅데이터스쿨/lsbigdata-project1/data/midwest.csv')\nmidwest\nimport seaborn as sns\nplt.clf()\nmidwest['poptotal']\nmidwest['popasian']\nplt.clf()\nsns.scatterplot(data = midwest, x = 'poptotal', y = 'popasian') \\\n   .set(xlim = [0, 500000], ylim = [0, 10000])\nplt.show()"
+  },
+  {
+    "objectID": "posts/hw3/hw3.html#p.-211",
+    "href": "posts/hw3/hw3.html#p.-211",
+    "title": "LS 빅데이터 스쿨 Homework 3",
+    "section": "p. 211",
+    "text": "p. 211"
+  },
+  {
+    "objectID": "posts/hw3/hw3.html#q1-1",
+    "href": "posts/hw3/hw3.html#q1-1",
+    "title": "LS 빅데이터 스쿨 Homework 3",
+    "section": "Q1",
+    "text": "Q1\n\nmpg\nplt.clf()\ndf = mpg.query('category == \"suv\"') \\\n        .groupby('manufacturer', as_index = False) \\\n        .agg(mean_cty = ('cty', 'mean')) \\\n        .sort_values('mean_cty', ascending = False) \\\n        .head()\n\ndf\n\nimport seaborn as sns\nsns.barplot(data = df, x = 'manufacturer', y = 'mean_cty')\nplt.show()"
+  },
+  {
+    "objectID": "posts/hw3/hw3.html#q2-1",
+    "href": "posts/hw3/hw3.html#q2-1",
+    "title": "LS 빅데이터 스쿨 Homework 3",
+    "section": "Q2",
+    "text": "Q2\n\ndf_mpg = mpg.groupby('category', as_index = False) \\\n            .agg(n = ('category', 'count')) \\\n            .sort_values('n', ascending = False)\ndf_mpg\n\nplt.clf()\nimport seaborn as sns\nsns.barplot(data= df_mpg, x = 'category', y = 'n')\n\n\n\n\n\n\n\n\n\n‘barplot()’ 사용하기"
+  },
+  {
+    "objectID": "posts/hw3/hw3.html#데이터-전처리하기",
+    "href": "posts/hw3/hw3.html#데이터-전처리하기",
+    "title": "LS 빅데이터 스쿨 Homework 3",
+    "section": "데이터 전처리하기",
+    "text": "데이터 전처리하기\n\nimport pandas as pd\nmpg = pd.read_csv('C:/Users/USER/Documents/LS빅데이터스쿨/lsbigdata-project1/data/mpg.csv')\nmpg\nmpg.shape\nimport seaborn as sns\nimport matplotlib.pyplot as plt"
+  },
+  {
+    "objectID": "posts/hw3/hw3.html#산점도-그리기",
+    "href": "posts/hw3/hw3.html#산점도-그리기",
+    "title": "LS 빅데이터 스쿨 Homework 3",
+    "section": "산점도 그리기",
+    "text": "산점도 그리기\n\nsns.scatterplot(data = mpg, x = 'displ', y = 'hwy',\n                            hue = 'drv') \\\n   .set(xlim = [3, 6], ylim = [10, 30])\nplt.show()\nplt.clf()\n\n\n\n\n\n\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;\n\n\n##barplot 이용하여 그래프 만들기\n\ndf_mpg = mpg.groupby('drv', as_index = False) \\\n    .agg(mean_hwy=('hwy', 'mean')) # as_index = False -&gt; drv가 컬럼이 돼서 나온다\nsns.barplot(data = df_mpg.sort_values('mean_hwy'),\n            x = 'drv', y = 'mean_hwy',\n            hue = 'drv')\nplt.show()\nplt.clf()\n\n\n\n\n\n\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;"
+  },
+  {
+    "objectID": "posts/hw3/hw3.html#데이터-전처리하기-1",
+    "href": "posts/hw3/hw3.html#데이터-전처리하기-1",
+    "title": "LS 빅데이터 스쿨 Homework 3",
+    "section": "데이터 전처리하기",
+    "text": "데이터 전처리하기\n\ndf_mpg = mpg.groupby('drv', as_index = False) \\\n            .agg(n = ('drv', 'count'))\ndf_mpg\n\n\n\n\n\n\n\n\ndrv\nn\n\n\n\n\n0\n4\n103\n\n\n1\nf\n106\n\n\n2\nr\n25"
+  },
+  {
+    "objectID": "posts/hw3/hw3.html#barplot-사용해서-그래프-그리기",
+    "href": "posts/hw3/hw3.html#barplot-사용해서-그래프-그리기",
+    "title": "LS 빅데이터 스쿨 Homework 3",
+    "section": "barplot 사용해서 그래프 그리기",
+    "text": "barplot 사용해서 그래프 그리기\n\nplt.clf()\nsns.barplot(data = df_mpg, x = 'drv', y = 'n', hue = 'drv')\nplt.show()"
+  },
+  {
+    "objectID": "posts/hw3/hw3.html#countplot-이용해서-그래프-그리기",
+    "href": "posts/hw3/hw3.html#countplot-이용해서-그래프-그리기",
+    "title": "LS 빅데이터 스쿨 Homework 3",
+    "section": "countplot 이용해서 그래프 그리기",
+    "text": "countplot 이용해서 그래프 그리기\n\nplt.clf()\nsns.countplot(data = mpg, x = 'drv', hue = 'drv')\nplt.show()"
+  },
+  {
+    "objectID": "posts/hw3/hw3.html#plotly를-사용한-산점도",
+    "href": "posts/hw3/hw3.html#plotly를-사용한-산점도",
+    "title": "LS 빅데이터 스쿨 Homework 3",
+    "section": "plotly를 사용한 산점도",
+    "text": "plotly를 사용한 산점도\n\nmpg\nmpg.info()\nimport plotly.express as px\npx.scatter(data_frame = mpg, x = 'cty', y = 'hwy', color = 'drv')\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 234 entries, 0 to 233\nData columns (total 11 columns):\n #   Column        Non-Null Count  Dtype  \n---  ------        --------------  -----  \n 0   manufacturer  234 non-null    object \n 1   model         234 non-null    object \n 2   displ         234 non-null    float64\n 3   year          234 non-null    int64  \n 4   cyl           234 non-null    int64  \n 5   trans         234 non-null    object \n 6   drv           234 non-null    object \n 7   cty           234 non-null    int64  \n 8   hwy           234 non-null    int64  \n 9   fl            234 non-null    object \n 10  class         234 non-null    object \ndtypes: float64(1), int64(4), object(6)\nmemory usage: 20.2+ KB\n\n\n                                                \n\n\n\ndf = mpg.groupby('class', as_index = False) \\\n        .agg(n = ('class', 'count'))\ndf\n\npx.bar(data_frame = df, x = 'class', y = 'n', color = 'class')"
   }
 ]
