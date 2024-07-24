@@ -3,7 +3,9 @@ title: "project1 - 기역조"
 author: "강남규, 권효은, 김연예진, 김연진"
 date: "2024-07-24"
 categories: [project]
+jupyter: python3
 ---
+
 
 # 주제
 **대한민국 연령별, 지역별 출생율 비교분석**
