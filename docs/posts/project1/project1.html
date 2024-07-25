@@ -254,7 +254,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>after_name</code>: 변경 후 이름 List</li>
 <li><code>lst_mean12_19</code>: 12 ~ 19년도 청년층의 시도별 모의 출산율 평균 Series List</li>
 </ol>
-<div id="f465a316" class="cell" data-execution_count="1">
+<div id="a499bd80" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -264,7 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>lst_mean12_19 <span class="op">=</span> []</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 
 
@@ -762,7 +762,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>이름 변경을 위한 문자열 추가</strong></p>
 <p>EX) “2020” → “20_1519”: 20년도 15 ~ 19세</p>
 <p>“2020.1” → “20_2024”: 20년도 20 ~ 24세</p>
-<div id="05f8bd0c" class="cell" data-execution_count="2">
+<div id="e81374a5" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">12</span>, <span class="dv">23</span>):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  before_name.append(<span class="st">"20"</span> <span class="op">+</span> <span class="bu">str</span>(i))</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  before_name.append(<span class="st">"20"</span> <span class="op">+</span> <span class="bu">str</span>(i) <span class="op">+</span> <span class="st">".1"</span>)</span>
@@ -788,12 +788,12 @@ after_name: ['12_1519', '12_2024', '12_2529', '12_3034', '12_3539', '12_4044', '
 <p><strong>복사본 br을 만들고, 행을 통합하기 위해 0번 행을 제거함</strong></p>
 <p>EX) 2020 + 15 ~ 19세 → 20_1519</p>
 <p>0번 열을 제거하여 1번부터 시작하므로, 추후 인덱싱 작업을 위해 <code>.reset_index</code>을 사용하여 재정렬</p>
-<div id="399174dc" class="cell" data-execution_count="3">
+<div id="e554d4db" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>br <span class="op">=</span> df.copy()</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>br.drop(<span class="dv">0</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>br.reset_index(drop <span class="op">=</span> <span class="va">True</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>br</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="21">
 <div>
 
 
@@ -1267,7 +1267,7 @@ after_name: ['12_1519', '12_2024', '12_2529', '12_3034', '12_3539', '12_4044', '
 <p><strong>의미를 통합하기 위해, 전체 열의 이름을 변경</strong></p>
 <p><code>before_name</code>의 길이 만큼 구문을 반복 (<code>len(before_name) = 77</code>이므로, <code>i</code>에는 0에서 77까지의 수가 들어감)</p>
 <p>EX) br의 열 이름이 <code>before_name[0]</code>에서 <code>after_name[0]</code>으로 변경 “2020” → “20_1519”</p>
-<div id="7ff9eebd" class="cell" data-execution_count="4">
+<div id="be413593" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(before_name)):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  br.rename(columns <span class="op">=</span> {before_name[i] : after_name[i]}, inplace <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1298,16 +1298,16 @@ after_name: ['12_1519', '12_2024', '12_2529', '12_3034', '12_3539', '12_4044', '
 </div>
 </div>
 <p><strong>데이터의 타입이 문자열이므로, 계산을 위해 Type을 float64로 변경함</strong></p>
-<div id="46585675" class="cell" data-execution_count="5">
+<div id="c69b9bed" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>br[after_name] <span class="op">=</span> br[after_name].<span class="bu">apply</span>(pd.to_numeric)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(br[<span class="st">"12_1519"</span>][<span class="dv">6</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>numpy.float64</code></pre>
 </div>
 </div>
 <p><strong>20 ~ 22년까지 최근 3년의 청년층(20 ~ 34세) 모의 연령별 출산율의 평균을 계산하여 열로 추가</strong></p>
-<div id="7052e0ac" class="cell" data-execution_count="6">
+<div id="654db44b" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>br <span class="op">=</span> br.assign(</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  mean20 <span class="op">=</span> (br[<span class="st">"20_2024"</span>] <span class="op">+</span> br[<span class="st">"20_2529"</span>] <span class="op">+</span> br[<span class="st">"20_3034"</span>]) <span class="op">/</span> <span class="dv">3</span>,</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  mean21 <span class="op">=</span> (br[<span class="st">"21_2024"</span>] <span class="op">+</span> br[<span class="st">"21_2529"</span>] <span class="op">+</span> br[<span class="st">"21_3034"</span>]) <span class="op">/</span> <span class="dv">3</span>,</span>
@@ -1315,7 +1315,7 @@ after_name: ['12_1519', '12_2024', '12_2529', '12_3034', '12_3539', '12_4044', '
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>br.head(<span class="dv">5</span>)</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>br</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <div>
 
 
@@ -1794,12 +1794,12 @@ after_name: ['12_1519', '12_2024', '12_2529', '12_3034', '12_3539', '12_4044', '
 <p>결과로 나온 평균을 <code>lst_mean12_19</code> 리스트에 요소로 추가</p>
 <p>따라서, <code>lst_mean12_19</code>에는 <strong>12 ~ 19년도 청년층의 시도별 모의 출산율 평균 Series List</strong>가 들어 있음</p>
 <p>(<code>br["mean12"]</code>, <code>br["mean13"]</code>, <code>br["mean14"]</code> …에 해당하는 Series를 열로 추가하지 않고 리스트에 보관했다고 생각)</p>
-<div id="800b4232" class="cell" data-execution_count="7">
+<div id="e1870fda" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">56</span>, <span class="dv">7</span>):</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  lst_mean12_19.append((br[after_name[i <span class="op">+</span> <span class="dv">1</span>]] <span class="op">+</span> br[after_name[i <span class="op">+</span> <span class="dv">2</span>]] <span class="op">+</span> br[after_name[i <span class="op">+</span> <span class="dv">3</span>]]) <span class="op">/</span> <span class="dv">3</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>lst_mean12_19</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>[0     71.766667
  1     55.033333
  2     61.333333
@@ -1965,7 +1965,7 @@ after_name: ['12_1519', '12_2024', '12_2529', '12_3034', '12_3539', '12_4044', '
 <li>기간: 2020~2022</li>
 <li>그룹: 청년 / 비청년</li>
 </ul>
-<div id="0eb3b75f" class="cell" data-execution_count="8">
+<div id="d09c97c7" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>br2 <span class="op">=</span> br.iloc[[<span class="dv">0</span>]]</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(br2[<span class="st">"21_2024"</span>][<span class="dv">0</span>])</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>br2.info()</span>
@@ -2063,7 +2063,7 @@ Data columns (total 81 columns):
 dtypes: float64(80), object(1)
 memory usage: 764.0+ bytes</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="26">
 <div>
 
 
@@ -2127,10 +2127,10 @@ memory usage: 764.0+ bytes</code></pre>
 </div>
 </div>
 <p><strong>보기 쉽게 만들기 위해 행렬을 뒤집는 transpose 함수 사용</strong></p>
-<div id="d1f083be" class="cell" data-execution_count="9">
+<div id="7916502c" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>br2 <span class="op">=</span> br2.transpose()</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>br2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <div>
 
 
@@ -2237,12 +2237,12 @@ memory usage: 764.0+ bytes</code></pre>
 <li>0 -&gt; birth_rate(모의연령별 출산율)</li>
 <li>비어있는열 -&gt; year</li>
 </ul>
-<div id="1765d1f4" class="cell" data-execution_count="10">
+<div id="b3967d51" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>br2 <span class="op">=</span> br2.rename(columns <span class="op">=</span> {<span class="dv">0</span> : <span class="st">'birth_rate'</span>})</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>br2 <span class="op">=</span> br2.rename_axis(columns <span class="op">=</span> {<span class="st">''</span> : <span class="st">'year'</span>}, index <span class="op">=</span> <span class="va">None</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>br2 <span class="op">=</span> br2.reset_index().rename(columns<span class="op">=</span>{<span class="st">'index'</span>: <span class="st">'year'</span>})</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>br2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="28">
 <div>
 
 
@@ -2370,11 +2370,11 @@ memory usage: 764.0+ bytes</code></pre>
 <ul>
 <li>청년층: 1, 비청년층: 2 할당</li>
 </ul>
-<div id="1b0e37a3" class="cell" data-execution_count="11">
+<div id="f5f18154" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>br2[<span class="st">'number'</span>] <span class="op">=</span> np.where(br2[<span class="st">'year'</span>]<span class="op">\</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                  .isin([<span class="st">'20_2024'</span>, <span class="st">'20_2529'</span>, <span class="st">'20_3034'</span>, <span class="st">'21_2024'</span>, <span class="st">'21_2529'</span>, <span class="st">'21_3034'</span>, <span class="st">'22_2024'</span>, <span class="st">'22_2529'</span>, <span class="st">'22_3034'</span>]), <span class="dv">1</span>, <span class="dv">2</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>br2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 
 
@@ -2524,7 +2524,7 @@ memory usage: 764.0+ bytes</code></pre>
 <h3 class="anchored" data-anchor-id="청년-비청년-출산율비교">청년, 비청년 출산율비교</h3>
 <p><strong>20~22년 청년 비청년 모의 출산율</strong></p>
 <p>청년층의 출산율을 알아보기 위해서는 br2 데이터에서 number == 1를 추출하여 평균을 구함 비청년도 같은 방식으로 진행</p>
-<div id="91952abd" class="cell" data-execution_count="12">
+<div id="8cde3128" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>br2_youth_rate <span class="op">=</span> br2.query(<span class="st">'number == 1'</span>)[<span class="st">'birth_rate'</span>].mean()</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>br2_non_youth_rate <span class="op">=</span> br2.query(<span class="st">'number == 2'</span>)[<span class="st">'birth_rate'</span>].mean()</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2536,7 +2536,7 @@ memory usage: 764.0+ bytes</code></pre>
 </div>
 </div>
 <p><strong>12~14년 청년 비청년 모의 출산율</strong></p>
-<div id="7db96ced" class="cell" data-execution_count="13">
+<div id="70c39038" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>br3<span class="op">=</span> br.iloc[:, <span class="dv">1</span>:<span class="dv">21</span>] <span class="co">## 12-14년도 데이터 추출</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>br3 <span class="op">=</span> br3.iloc[[<span class="dv">0</span>]]</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2561,7 +2561,7 @@ memory usage: 764.0+ bytes</code></pre>
 </div>
 </div>
 <p><strong>그래프 표현</strong></p>
-<div id="4e599cef" class="cell" data-execution_count="14">
+<div id="011615ea" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2580,7 +2580,7 @@ memory usage: 764.0+ bytes</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="project1_files/figure-html/cell-15-output-1.png" width="587" height="455" class="figure-img"></p>
+<p><img src="project1_files/figure-html/cell-15-output-1.png" width="585" height="455" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2601,7 +2601,7 @@ memory usage: 764.0+ bytes</code></pre>
 <section id="q-전국-평균-대비-시도별-청년층의-출산율-비교" class="level2">
 <h2 class="anchored" data-anchor-id="q-전국-평균-대비-시도별-청년층의-출산율-비교">Q 전국 평균 대비 시도별 청년층의 출산율 비교</h2>
 <p><strong>청년층의 출산율이 높은 지역 상위5 &amp; 하위5</strong></p>
-<div id="8b312397" class="cell" data-execution_count="15">
+<div id="c11d9f02" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'상위'</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(br[[<span class="st">'시군구별'</span>, <span class="st">"mean20"</span>]].sort_values(<span class="st">"mean20"</span>, ascending <span class="op">=</span> <span class="va">False</span>).head(), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">"-------------------------"</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(br[[<span class="st">'시군구별'</span>, <span class="st">"mean21"</span>]].sort_values(<span class="st">"mean21"</span>, ascending <span class="op">=</span> <span class="va">False</span>).head(), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">"-------------------------"</span>)</span>
@@ -2660,7 +2660,7 @@ memory usage: 764.0+ bytes</code></pre>
 </div>
 </div>
 <p><strong>각 도시 청년층의 평균모의출산율 그래프</strong></p>
-<div id="dce9a3ac" class="cell" data-execution_count="16">
+<div id="dcb5ab06" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>plt.rcParams.update({<span class="st">'font.family'</span> : <span class="st">'Malgun Gothic'</span>})</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>new <span class="op">=</span> br[[<span class="st">'시군구별'</span>, <span class="st">'mean20'</span>]].sort_values(<span class="st">"mean20"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
@@ -2679,7 +2679,7 @@ memory usage: 764.0+ bytes</code></pre>
 </div>
 </div>
 </div>
-<div id="91eb6141" class="cell" data-execution_count="17">
+<div id="4a576f4d" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>new <span class="op">=</span> br[[<span class="st">'시군구별'</span>, <span class="st">'mean21'</span>]].sort_values(<span class="st">"mean21"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">3</span>))</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>new, x<span class="op">=</span><span class="st">'시군구별'</span>, y<span class="op">=</span><span class="st">'mean21'</span>)</span>
@@ -2696,7 +2696,7 @@ memory usage: 764.0+ bytes</code></pre>
 </div>
 </div>
 </div>
-<div id="8746471f" class="cell" data-execution_count="18">
+<div id="ec0416aa" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>new <span class="op">=</span> br[[<span class="st">'시군구별'</span>, <span class="st">'mean22'</span>]].sort_values(<span class="st">"mean22"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">3</span>))</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>new, x<span class="op">=</span><span class="st">'시군구별'</span>, y<span class="op">=</span><span class="st">'mean22'</span>)</span>
