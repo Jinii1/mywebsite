@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jinii">
+<meta name="dcterms.date" content="2024-07-25">
 
-<title>Jinii - myblog</title>
+<title>Jinii - LS 빅데이터 스쿨 Homework 3-2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +102,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Jinii</span>
     </a>
   </div>
@@ -149,15 +125,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -168,280 +144,162 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">LS 빅데이터 스쿨 Homework 3-2</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">bigdata</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jinii </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 25, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="bigdata">bigdata <span class="quarto-category-count">(5)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(1)</span></div><div class="category" data-category="project">project <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#숙제-qmd" id="toc-숙제-qmd" class="nav-link active" data-scroll-target="#숙제-qmd">숙제 Qmd</a></li>
+  <li><a href="#정규분포-pdf-값을-계산하는-자신만의" id="toc-정규분포-pdf-값을-계산하는-자신만의" class="nav-link" data-scroll-target="#정규분포-pdf-값을-계산하는-자신만의">1. 정규분포 pdf 값을 계산하는 자신만의</a></li>
+  <li><a href="#파이썬-함수를-정의하고" id="toc-파이썬-함수를-정의하고" class="nav-link" data-scroll-target="#파이썬-함수를-정의하고">파이썬 함수를 정의하고,</a></li>
+  <li><a href="#정규분포-mu-3-sigma-2-의-pdf를-그릴-것." id="toc-정규분포-mu-3-sigma-2-의-pdf를-그릴-것." class="nav-link" data-scroll-target="#정규분포-mu-3-sigma-2-의-pdf를-그릴-것.">정규분포 mu = 3, sigma = 2 의 pdf를 그릴 것.</a></li>
+  <li><a href="#파이썬-scipy-패키지-사용해서-다음과-같은-확률을-구하시오." id="toc-파이썬-scipy-패키지-사용해서-다음과-같은-확률을-구하시오." class="nav-link" data-scroll-target="#파이썬-scipy-패키지-사용해서-다음과-같은-확률을-구하시오.">2. 파이썬 scipy 패키지 사용해서 다음과 같은 확률을 구하시오.</a></li>
+  <li><a href="#x-n2-32" id="toc-x-n2-32" class="nav-link" data-scroll-target="#x-n2-32">X ~ N(2, 3^2)</a></li>
+  <li><a href="#px-3" id="toc-px-3" class="nav-link" data-scroll-target="#px-3">1) P(X &lt; 3)</a></li>
+  <li><a href="#p2-x-5" id="toc-p2-x-5" class="nav-link" data-scroll-target="#p2-x-5">2) P(2 &lt; X &lt; 5)</a></li>
+  <li><a href="#px-3-or-x-7" id="toc-px-3-or-x-7" class="nav-link" data-scroll-target="#px-3-or-x-7">3) P(X &lt; 3 or X &gt; 7)</a></li>
+  <li><a href="#ls-빅데이터-스쿨-학생들의-중간고사-점수는-평균이-30이고-분산이-4인-정규분포를-따른다." id="toc-ls-빅데이터-스쿨-학생들의-중간고사-점수는-평균이-30이고-분산이-4인-정규분포를-따른다." class="nav-link" data-scroll-target="#ls-빅데이터-스쿨-학생들의-중간고사-점수는-평균이-30이고-분산이-4인-정규분포를-따른다.">3. LS 빅데이터 스쿨 학생들의 중간고사 점수는 평균이 30이고, 분산이 4인 정규분포를 따른다.</a></li>
+  <li><a href="#상위-5에-해당하는-학생의-점수는" id="toc-상위-5에-해당하는-학생의-점수는" class="nav-link" data-scroll-target="#상위-5에-해당하는-학생의-점수는">상위 5%에 해당하는 학생의 점수는?</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">myblog</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<section id="숙제-qmd" class="level1">
+<h1>숙제 Qmd</h1>
+</section>
+<section id="정규분포-pdf-값을-계산하는-자신만의" class="level1">
+<h1>1. 정규분포 pdf 값을 계산하는 자신만의</h1>
+</section>
+<section id="파이썬-함수를-정의하고" class="level1">
+<h1>파이썬 함수를 정의하고,</h1>
+</section>
+<section id="정규분포-mu-3-sigma-2-의-pdf를-그릴-것." class="level1">
+<h1>정규분포 mu = 3, sigma = 2 의 pdf를 그릴 것.</h1>
+<div id="a9a0254e" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_normal_pdf(x, mu, sigma):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    part_1 <span class="op">=</span> (sigma <span class="op">*</span> math.sqrt(<span class="dv">2</span> <span class="op">*</span> math.pi)) <span class="op">**</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    part_2 <span class="op">=</span> (<span class="op">-</span>(x <span class="op">-</span> mu)<span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> <span class="dv">2</span> <span class="op">*</span> sigma <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> part_1 <span class="op">*</span> part_2</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> norm.rvs(loc <span class="op">=</span> <span class="dv">3</span>, scale <span class="op">=</span> <span class="dv">2</span>, size <span class="op">=</span> <span class="dv">1000</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>sns.histplot(x, stat <span class="op">=</span> <span class="st">'density'</span>, color <span class="op">=</span> <span class="st">'skyblue'</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>xmin, xmax <span class="op">=</span> (x.<span class="bu">min</span>(), x.<span class="bu">max</span>())</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>x_values <span class="op">=</span> np.linspace(xmin, xmax, <span class="dv">100</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>pdf_values <span class="op">=</span> norm.pdf(x_values, loc <span class="op">=</span> <span class="dv">3</span>, scale <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>plt.plot(x_values, pdf_values, color <span class="op">=</span> <span class="st">'pink'</span>, linewidth <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw3-2_files/figure-html/cell-2-output-1.png" width="606" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="파이썬-scipy-패키지-사용해서-다음과-같은-확률을-구하시오." class="level1">
+<h1>2. 파이썬 scipy 패키지 사용해서 다음과 같은 확률을 구하시오.</h1>
+</section>
+<section id="x-n2-32" class="level1">
+<h1>X ~ N(2, 3^2)</h1>
+</section>
+<section id="px-3" class="level1">
+<h1>1) P(X &lt; 3)</h1>
+<div id="f92ccdd4" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="dv">3</span>, loc <span class="op">=</span> <span class="dv">2</span>, scale <span class="op">=</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>np.float64(0.6305586598182363)</code></pre>
+</div>
+</div>
+</section>
+<section id="p2-x-5" class="level1">
+<h1>2) P(2 &lt; X &lt; 5)</h1>
+<div id="3410536d" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="op">-</span> norm.cdf(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>np.float64(0.3413447460685429)</code></pre>
+</div>
+</div>
+</section>
+<section id="px-3-or-x-7" class="level1">
+<h1>3) P(X &lt; 3 or X &gt; 7)</h1>
+<div id="2519951d" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="op">+</span> (<span class="dv">1</span> <span class="op">-</span> (norm.cdf(<span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">3</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>np.float64(0.678349012091051)</code></pre>
+</div>
+</div>
+</section>
+<section id="ls-빅데이터-스쿨-학생들의-중간고사-점수는-평균이-30이고-분산이-4인-정규분포를-따른다." class="level1">
+<h1>3. LS 빅데이터 스쿨 학생들의 중간고사 점수는 평균이 30이고, 분산이 4인 정규분포를 따른다.</h1>
+</section>
+<section id="상위-5에-해당하는-학생의-점수는" class="level1">
+<h1>상위 5%에 해당하는 학생의 점수는?</h1>
+<div id="734c5de3" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># X~M(30, 2^2)</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>norm.ppf(<span class="fl">0.95</span>, <span class="dv">30</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>np.float64(33.28970725390295)</code></pre>
+</div>
+</div>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="bigdata" data-listing-date-sort="1722178800000" data-listing-file-modified-sort="1722265436358" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="162">
-<div class="thumbnail">
-<p><a href="./posts/hw4/hw4.html" class="no-external"></a></p><a href="./posts/hw4/hw4.html" class="no-external">
-<p class="card-img-top"><img src="posts\hw4\hw4_files\figure-html\cell-4-output-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/hw4/hw4.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/hw4/hw4.html" class="no-external">LS 빅데이터 스쿨 Homework 4</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/hw4/hw4.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bigdata'); return false;">
-bigdata
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/hw4/hw4.html" class="no-external">표본 분산 계산 시 왜 n-1로 나누는지 알아보도록 하겠습니다.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/hw4/hw4.html" class="no-external">
-<div class="listing-date">
-Jul 29, 2024
-</div>
-<div class="listing-author">
-Jinii
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="bigdata" data-listing-date-sort="1721833200000" data-listing-file-modified-sort="1722245487384" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="193">
-<div class="thumbnail">
-<p><a href="./posts/hw3-2/hw3-2.html" class="no-external"></a></p><a href="./posts/hw3-2/hw3-2.html" class="no-external">
-<p class="card-img-top"><img src="posts\hw3-2\hw3-2_files\figure-html\cell-2-output-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/hw3-2/hw3-2.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/hw3-2/hw3-2.html" class="no-external">LS 빅데이터 스쿨 Homework 3-2</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/hw3-2/hw3-2.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bigdata'); return false;">
-bigdata
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/hw3-2/hw3-2.html" class="no-external">
 
-</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/hw3-2/hw3-2.html" class="no-external">
-<div class="listing-date">
-Jul 25, 2024
-</div>
-<div class="listing-author">
-Jinii
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="project" data-listing-date-sort="1721746800000" data-listing-file-modified-sort="1721788251427" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="905">
-<div class="thumbnail">
-<p><a href="./posts/project1/project1.html" class="no-external"></a></p><a href="./posts/project1/project1.html" class="no-external">
-<p class="card-img-top"><img src="posts\project1\project1_files\figure-html\cell-15-output-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/project1/project1.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/project1/project1.html" class="no-external">project1 - 기역조</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/project1/project1.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('project'); return false;">
-project
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/project1/project1.html" class="no-external"><strong>대한민국 연령별, 지역별 출생율 비교분석</strong></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/project1/project1.html" class="no-external">
-<div class="listing-date">
-Jul 24, 2024
-</div>
-<div class="listing-author">
-강남규, 권효은, 김연예진, 김연진
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="bigdata" data-listing-date-sort="1721574000000" data-listing-file-modified-sort="1721657412822" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="388">
-<div class="thumbnail">
-<p><a href="./posts/hw3/hw3.html" class="no-external"></a></p><a href="./posts/hw3/hw3.html" class="no-external">
-<p class="card-img-top"><img src="posts\hw3\hw3_files\figure-html\cell-3-output-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/hw3/hw3.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/hw3/hw3.html" class="no-external">LS 빅데이터 스쿨 Homework 3</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/hw3/hw3.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bigdata'); return false;">
-bigdata
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/hw3/hw3.html" class="no-external">##barplot 이용하여 그래프 만들기</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/hw3/hw3.html" class="no-external">
-<div class="listing-date">
-Jul 22, 2024
-</div>
-<div class="listing-author">
-Jinii
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="news" data-listing-date-sort="1721142000000" data-listing-file-modified-sort="1721191896502" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
-<div class="thumbnail">
-<p><a href="./posts/test/index.html" class="no-external"></a></p><a href="./posts/test/index.html" class="no-external">
-<p class="card-img-top"><img src="posts\test\thumbnail.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/test/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/test/index.html" class="no-external">Welcome To My Blog</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/test/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
-news
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/test/index.html" class="no-external">This is the first post in a Quarto blog. Welcome!</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/test/index.html" class="no-external">
-<div class="listing-date">
-Jul 17, 2024
-</div>
-<div class="listing-author">
-Jinii
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="bigdata" data-listing-date-sort="1721055600000" data-listing-file-modified-sort="1721657536192" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="104">
-<div class="thumbnail">
-<p><a href="./posts/hw2/hw2.html" class="no-external"></a></p><a href="./posts/hw2/hw2.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/hw2/hw2.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/hw2/hw2.html" class="no-external">LS 빅데이터 스쿨 Homework 2</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/hw2/hw2.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bigdata'); return false;">
-bigdata
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/hw2/hw2.html" class="no-external">
+</section>
 
-</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/hw2/hw2.html" class="no-external">
-<div class="listing-date">
-Jul 16, 2024
-</div>
-<div class="listing-author">
-Jinii
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="bigdata" data-listing-date-sort="1720969200000" data-listing-file-modified-sort="1721193034873" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="121">
-<div class="thumbnail">
-<p><a href="./posts/hw1/hw1.html" class="no-external"></a></p><a href="./posts/hw1/hw1.html" class="no-external">
-<p class="card-img-top"><img src="posts\hw1\hw1_files\figure-html\cell-9-output-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/hw1/hw1.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/hw1/hw1.html" class="no-external">LS 빅데이터 스쿨 Homework 1</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/hw1/hw1.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bigdata'); return false;">
-bigdata
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/hw1/hw1.html" class="no-external">234 rows × 11 columns</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/hw1/hw1.html" class="no-external">
-<div class="listing-date">
-Jul 15, 2024
-</div>
-<div class="listing-author">
-Jinii
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

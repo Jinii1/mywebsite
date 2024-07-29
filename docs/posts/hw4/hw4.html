@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jinii">
-<meta name="dcterms.date" content="2024-07-25">
+<meta name="dcterms.date" content="2024-07-29">
 
 <title>Jinii - LS 빅데이터 스쿨 Homework 4</title>
 <style>
@@ -167,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 25, 2024</p>
+        <p class="date">July 29, 2024</p>
       </div>
     </div>
     
@@ -183,17 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#숙제-qmd" id="toc-숙제-qmd" class="nav-link active" data-scroll-target="#숙제-qmd">숙제 Qmd</a></li>
-  <li><a href="#정규분포-pdf-값을-계산하는-자신만의" id="toc-정규분포-pdf-값을-계산하는-자신만의" class="nav-link" data-scroll-target="#정규분포-pdf-값을-계산하는-자신만의">1. 정규분포 pdf 값을 계산하는 자신만의</a></li>
-  <li><a href="#파이썬-함수를-정의하고" id="toc-파이썬-함수를-정의하고" class="nav-link" data-scroll-target="#파이썬-함수를-정의하고">파이썬 함수를 정의하고,</a></li>
-  <li><a href="#정규분포-mu-3-sigma-2-의-pdf를-그릴-것." id="toc-정규분포-mu-3-sigma-2-의-pdf를-그릴-것." class="nav-link" data-scroll-target="#정규분포-mu-3-sigma-2-의-pdf를-그릴-것.">정규분포 mu = 3, sigma = 2 의 pdf를 그릴 것.</a></li>
-  <li><a href="#파이썬-scipy-패키지-사용해서-다음과-같은-확률을-구하시오." id="toc-파이썬-scipy-패키지-사용해서-다음과-같은-확률을-구하시오." class="nav-link" data-scroll-target="#파이썬-scipy-패키지-사용해서-다음과-같은-확률을-구하시오.">2. 파이썬 scipy 패키지 사용해서 다음과 같은 확률을 구하시오.</a></li>
-  <li><a href="#x-n2-32" id="toc-x-n2-32" class="nav-link" data-scroll-target="#x-n2-32">X ~ N(2, 3^2)</a></li>
-  <li><a href="#px-3" id="toc-px-3" class="nav-link" data-scroll-target="#px-3">1) P(X &lt; 3)</a></li>
-  <li><a href="#p2-x-5" id="toc-p2-x-5" class="nav-link" data-scroll-target="#p2-x-5">2) P(2 &lt; X &lt; 5)</a></li>
-  <li><a href="#px-3-or-x-7" id="toc-px-3-or-x-7" class="nav-link" data-scroll-target="#px-3-or-x-7">3) P(X &lt; 3 or X &gt; 7)</a></li>
-  <li><a href="#ls-빅데이터-스쿨-학생들의-중간고사-점수는-평균이-30이고-분산이-4인-정규분포를-따른다." id="toc-ls-빅데이터-스쿨-학생들의-중간고사-점수는-평균이-30이고-분산이-4인-정규분포를-따른다." class="nav-link" data-scroll-target="#ls-빅데이터-스쿨-학생들의-중간고사-점수는-평균이-30이고-분산이-4인-정규분포를-따른다.">3. LS 빅데이터 스쿨 학생들의 중간고사 점수는 평균이 30이고, 분산이 4인 정규분포를 따른다.</a></li>
-  <li><a href="#상위-5에-해당하는-학생의-점수는" id="toc-상위-5에-해당하는-학생의-점수는" class="nav-link" data-scroll-target="#상위-5에-해당하는-학생의-점수는">상위 5%에 해당하는 학생의 점수는?</a></li>
+  <li><a href="#숙제-표본-분산-n-1-vs.-n" id="toc-숙제-표본-분산-n-1-vs.-n" class="nav-link active" data-scroll-target="#숙제-표본-분산-n-1-vs.-n">숙제 표본 분산 n-1 vs.&nbsp;n</a></li>
   </ul>
 </nav>
     </div>
@@ -204,44 +194,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="숙제-qmd" class="level1">
-<h1>숙제 Qmd</h1>
-</section>
-<section id="정규분포-pdf-값을-계산하는-자신만의" class="level1">
-<h1>1. 정규분포 pdf 값을 계산하는 자신만의</h1>
-</section>
-<section id="파이썬-함수를-정의하고" class="level1">
-<h1>파이썬 함수를 정의하고,</h1>
-</section>
-<section id="정규분포-mu-3-sigma-2-의-pdf를-그릴-것." class="level1">
-<h1>정규분포 mu = 3, sigma = 2 의 pdf를 그릴 것.</h1>
-<div id="6175b740" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_normal_pdf(x, mu, sigma):</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    part_1 <span class="op">=</span> (sigma <span class="op">*</span> math.sqrt(<span class="dv">2</span> <span class="op">*</span> math.pi)) <span class="op">**</span> <span class="op">-</span><span class="dv">1</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    part_2 <span class="op">=</span> (<span class="op">-</span>(x <span class="op">-</span> mu)<span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> <span class="dv">2</span> <span class="op">*</span> sigma <span class="op">**</span> <span class="dv">2</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> part_1 <span class="op">*</span> part_2</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> norm.rvs(loc <span class="op">=</span> <span class="dv">3</span>, scale <span class="op">=</span> <span class="dv">2</span>, size <span class="op">=</span> <span class="dv">1000</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>sns.histplot(x, stat <span class="op">=</span> <span class="st">'density'</span>, color <span class="op">=</span> <span class="st">'skyblue'</span>)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>xmin, xmax <span class="op">=</span> (x.<span class="bu">min</span>(), x.<span class="bu">max</span>())</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>x_values <span class="op">=</span> np.linspace(xmin, xmax, <span class="dv">100</span>)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>pdf_values <span class="op">=</span> norm.pdf(x_values, loc <span class="op">=</span> <span class="dv">3</span>, scale <span class="op">=</span> <span class="dv">2</span>)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>plt.plot(x_values, pdf_values, color <span class="op">=</span> <span class="st">'pink'</span>, linewidth <span class="op">=</span> <span class="dv">2</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="숙제-표본-분산-n-1-vs.-n" class="level2">
+<h2 class="anchored" data-anchor-id="숙제-표본-분산-n-1-vs.-n">숙제 표본 분산 n-1 vs.&nbsp;n</h2>
+<p>표본 분산 계산 시 왜 n-1로 나누는지 알아보도록 하겠습니다.</p>
+<p>균일분포 (3, 7)에서 20개의 표본을 뽑아서 분산을 2가지 방법으로 추정해보세요.</p>
+<p>n-1로 나눈 것을 s_2, n으로 나눈 것을 k_2로 정의하고, s_2의 분포와 k_2의 분포를 그려주세요! (10000개 사용) 각 분포 그래프에 모분산의 위치에 녹색 막대를 그려주세요. 결과를 살펴보고, 왜 n-1로 나눈 것을 분산을 추정하는 지표로 사용하는 것이 타당한지 써주세요!</p>
+<div id="618e5e76" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> uniform</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>균일분포 (3, 7)에서 20개의 표본 추출</strong></p>
+<div id="9b113891" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> uniform.rvs(loc<span class="op">=</span><span class="dv">3</span>, scale<span class="op">=</span><span class="dv">4</span>, size<span class="op">=</span><span class="dv">20</span><span class="op">*</span><span class="dv">10000</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>x.shape</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>x.reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">20</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>x.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>(10000, 20)</code></pre>
+</div>
+</div>
+<p><strong>n-1로 나눈 것을 s_2</strong> <strong>s_2의 분포 그리기 (10000개 사용)</strong> <strong>모분산의 위치에 녹색 막대</strong></p>
+<div id="268865da" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>s_2 <span class="op">=</span> np.var(x, ddof<span class="op">=</span><span class="dv">1</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>s_2.shape</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>sns.histplot(s_2, stat<span class="op">=</span><span class="st">'density'</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>uniform.var(loc<span class="op">=</span><span class="dv">2</span>, scale<span class="op">=</span><span class="dv">4</span>) <span class="co"># 모분산</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>plt.axvline(x <span class="op">=</span> uniform.var(loc<span class="op">=</span><span class="dv">2</span>, scale<span class="op">=</span><span class="dv">4</span>), color <span class="op">=</span> <span class="st">'green'</span>, linestyle <span class="op">=</span> <span class="st">'-'</span>, linewidth <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="hw4_files/figure-html/cell-2-output-1.png" width="606" height="411" class="figure-img"></p>
+<p><img src="hw4_files/figure-html/cell-4-output-1.png" width="589" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw4_files/figure-html/cell-4-output-2.png" width="571" height="416" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -249,52 +248,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
 </div>
 </div>
-</section>
-<section id="파이썬-scipy-패키지-사용해서-다음과-같은-확률을-구하시오." class="level1">
-<h1>2. 파이썬 scipy 패키지 사용해서 다음과 같은 확률을 구하시오.</h1>
-</section>
-<section id="x-n2-32" class="level1">
-<h1>X ~ N(2, 3^2)</h1>
-</section>
-<section id="px-3" class="level1">
-<h1>1) P(X &lt; 3)</h1>
-<div id="05087aec" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="dv">3</span>, loc <span class="op">=</span> <span class="dv">2</span>, scale <span class="op">=</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>np.float64(0.6305586598182363)</code></pre>
+<p><strong>n으로 나눈 것을 k_2로 정의</strong> <strong>k_2의 분포 그리기 (10000개 사용)</strong> <strong>모분산의 위치에 녹색 막대</strong></p>
+<div id="4e8c3183" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>k_2 <span class="op">=</span> np.var(x, ddof<span class="op">=</span><span class="dv">0</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>k_2.shape</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>sns.histplot(k_2, stat<span class="op">=</span><span class="st">'density'</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>uniform.var(loc<span class="op">=</span><span class="dv">2</span>, scale<span class="op">=</span><span class="dv">4</span>) <span class="co"># 모분산</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>plt.axvline(x <span class="op">=</span> uniform.var(loc<span class="op">=</span><span class="dv">2</span>, scale<span class="op">=</span><span class="dv">4</span>), color <span class="op">=</span> <span class="st">'green'</span>, linestyle <span class="op">=</span> <span class="st">'-'</span>, linewidth <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw4_files/figure-html/cell-5-output-1.png" width="589" height="411" class="figure-img"></p>
+</figure>
 </div>
 </div>
-</section>
-<section id="p2-x-5" class="level1">
-<h1>2) P(2 &lt; X &lt; 5)</h1>
-<div id="a517c7f3" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="op">-</span> norm.cdf(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>np.float64(0.3413447460685429)</code></pre>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw4_files/figure-html/cell-5-output-2.png" width="571" height="416" class="figure-img"></p>
+</figure>
 </div>
 </div>
-</section>
-<section id="px-3-or-x-7" class="level1">
-<h1>3) P(X &lt; 3 or X &gt; 7)</h1>
-<div id="4079b144" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="op">+</span> (<span class="dv">1</span> <span class="op">-</span> (norm.cdf(<span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">3</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>np.float64(0.678349012091051)</code></pre>
 </div>
-</div>
-</section>
-<section id="ls-빅데이터-스쿨-학생들의-중간고사-점수는-평균이-30이고-분산이-4인-정규분포를-따른다." class="level1">
-<h1>3. LS 빅데이터 스쿨 학생들의 중간고사 점수는 평균이 30이고, 분산이 4인 정규분포를 따른다.</h1>
-</section>
-<section id="상위-5에-해당하는-학생의-점수는" class="level1">
-<h1>상위 5%에 해당하는 학생의 점수는?</h1>
-<div id="c9ad5044" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># X~M(30, 2^2)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>norm.ppf(<span class="fl">0.95</span>, <span class="dv">30</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>np.float64(33.28970725390295)</code></pre>
-</div>
-</div>
+<p><strong>왜 n-1로 나눈 것을 분산을 추정하는 지표로 사용하는 것이 타당한지</strong></p>
+<ol type="1">
+<li><p>s_2의 분포가 녹색 막대(모분산)에 더 근접함</p></li>
+<li><p>모분산: uniform.var(loc=2, scale=4) = 1.3333333333333333 s_2.mean() = 1.3350735555430302 k_2.mean() = 1.2683198777658786</p></li>
+</ol>
+<p>v</p>
 
 
 </section>

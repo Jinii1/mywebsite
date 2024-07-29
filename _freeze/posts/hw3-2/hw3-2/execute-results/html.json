@@ -1,0 +1,12 @@
+{
+  "hash": "649fb55156ba6eeb27675b1c7186ec1a",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: LS 빅데이터 스쿨 Homework 3-2\nauthor: Jinii\ndate: '2024-07-25'\ncategories:\n  - bigdata\n---\n\n# 숙제 Qmd\n\n# 1. 정규분포 pdf 값을 계산하는 자신만의\n# 파이썬 함수를 정의하고, \n# 정규분포 mu = 3, sigma = 2 의 pdf를 그릴 것.\n\n::: {#a9a0254e .cell execution_count=1}\n``` {.python .cell-code}\nimport math\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport numpy as np\nfrom scipy.stats import norm\n\ndef my_normal_pdf(x, mu, sigma):\n    part_1 = (sigma * math.sqrt(2 * math.pi)) ** -1\n    part_2 = (-(x - mu)** 2) / 2 * sigma ** 2\n    return part_1 * part_2\n    \nx = norm.rvs(loc = 3, scale = 2, size = 1000)\nx\n\nsns.histplot(x, stat = 'density', color = 'skyblue')\n\nxmin, xmax = (x.min(), x.max())\nx_values = np.linspace(xmin, xmax, 100)\npdf_values = norm.pdf(x_values, loc = 3, scale = 2)\nplt.plot(x_values, pdf_values, color = 'pink', linewidth = 2)\nplt.show()\nplt.clf()\n```\n\n::: {.cell-output .cell-output-display}\n![](hw3-2_files/figure-html/cell-2-output-1.png){width=606 height=411}\n:::\n\n::: {.cell-output .cell-output-display}\n```\n<Figure size 672x480 with 0 Axes>\n```\n:::\n:::\n\n\n# 2. 파이썬 scipy 패키지 사용해서 다음과 같은 확률을 구하시오.\n# X ~ N(2, 3^2)\n# 1) P(X < 3)\n\n::: {#f92ccdd4 .cell execution_count=2}\n``` {.python .cell-code}\nnorm.cdf(3, loc = 2, scale = 3)\n```\n\n::: {.cell-output .cell-output-display execution_count=2}\n```\nnp.float64(0.6305586598182363)\n```\n:::\n:::\n\n\n# 2) P(2 < X < 5)\n\n::: {#3410536d .cell execution_count=3}\n``` {.python .cell-code}\nnorm.cdf(5, 2, 3) - norm.cdf(2, 2, 3)\n```\n\n::: {.cell-output .cell-output-display execution_count=3}\n```\nnp.float64(0.3413447460685429)\n```\n:::\n:::\n\n\n# 3) P(X < 3 or X > 7)\n\n::: {#2519951d .cell execution_count=4}\n``` {.python .cell-code}\nnorm.cdf(3, 2, 3) + (1 - (norm.cdf(7, 2, 3)))\n```\n\n::: {.cell-output .cell-output-display execution_count=4}\n```\nnp.float64(0.678349012091051)\n```\n:::\n:::\n\n\n# 3. LS 빅데이터 스쿨 학생들의 중간고사 점수는 평균이 30이고, 분산이 4인 정규분포를 따른다.\n# 상위 5%에 해당하는 학생의 점수는?\n\n::: {#734c5de3 .cell execution_count=5}\n``` {.python .cell-code}\n# X~M(30, 2^2)\nnorm.ppf(0.95, 30, 2)\n```\n\n::: {.cell-output .cell-output-display execution_count=5}\n```\nnp.float64(33.28970725390295)\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "hw3-2_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
