@@ -44,11 +44,7 @@ x.shape
 ```{python}
 s_2 = np.var(x, ddof=1, axis=1)
 s_2.shape
-
 sns.histplot(s_2, stat='density')
-plt.show()
-
-uniform.var(loc=2, scale=4) # 모분산
 plt.axvline(x = uniform.var(loc=2, scale=4), color = 'green', linestyle = '-', linewidth = 2)
 plt.show()
 plt.clf()
@@ -63,9 +59,6 @@ k_2 = np.var(x, ddof=0, axis=1)
 k_2.shape
 
 sns.histplot(k_2, stat='density')
-plt.show()
-
-uniform.var(loc=2, scale=4) # 모분산
 plt.axvline(x = uniform.var(loc=2, scale=4), color = 'green', linestyle = '-', linewidth = 2)
 plt.show()
 
