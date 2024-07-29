@@ -143,12 +143,3 @@ import plotly.express as px
 px.scatter(data_frame = mpg, x = 'cty', y = 'hwy', color = 'drv')
 
 ```
-
-``` {python}
-df = mpg.groupby('class', as_index = False) \
-        .agg(n = ('class', 'count'))
-df
-
-px.bar(data_frame = df, x = 'class', y = 'n', color = 'class')  
-
-```
