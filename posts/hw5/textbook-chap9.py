@@ -23,6 +23,7 @@ welfare=welfare.rename(
         "h14_reg7": "code_region"
     }
 )
+
 welfare.info()
 
 welfare=welfare[["sex", "birth", "marriage_type",
@@ -34,14 +35,14 @@ welfare.shape
 
 # 1. 성별 변수 검토 및 전처리
 welfare["sex"].dtypes
-6
+
 # welfare["sex"].isna().sum()
 
 # 결측치가 있다면
 # welfare['sex']=np.where(welfare['sex'] == 9, np.nan, welfare['sex'])
 
 welfare["sex"] = np.where(welfare["sex"] == 1,'male', 'female')
-welfare["sex"].value_counts()
+welfare["sex"].value_counts() # 열에 있는 각 고유 값의 발생 빈도를 계산
 
 # 2. 월급 변수 검토 및 전처리
 welfare["income"].describe()
@@ -64,7 +65,7 @@ plt.clf()
 # 9-3 나이와 월급의 관계
 
 # 1. 나이 변수 검토 및 전처리
-welfare["birth"].describe()
+welfare['birth'].describe()
 sns.histplot(data=welfare, x="birth")
 plt.show()
 plt.clf()
@@ -72,17 +73,15 @@ plt.clf()
 welfare["birth"].isna().sum()
 
 # 나이 파생변수 만들기
-welfare=welfare.assign(age = 2019 - welfare["birth"] + 1)
-welfare["age"]
+welfare=welfare.assign(age=2019-welfare['birth']+1)
 sns.histplot(data=welfare, x="age")
 plt.show()
 plt.clf()
 
 # 나이에 따른 월급 평균표 만들기
-age_income=welfare.dropna(subset="income") \
-                    .groupby("age", as_index=False) \
-                    .agg(mean_income = ("income", "mean"))
-
+age_income=welfare.dropna(subset='income') \
+                  .groupby('age', as_index=False) \
+                  .agg(mean_income=('income', 'mean'))
 sns.lineplot(data=age_income, x="age", y="mean_income")
 plt.show()
 plt.clf()
@@ -102,17 +101,20 @@ plt.clf()
 
 # 9-4 연령대별 수입 분석
 # cut
+# cut
 bin_cut=np.array([0, 9, 19, 29, 39, 49, 59, 69, 79, 89, 99, 109, 119])
-welfare=welfare.assign(age_group = pd.cut(welfare["age"], 
-                bins=bin_cut, 
-                labels=(np.arange(12) * 10).astype(str) + "대"))
+welfare=welfare.assign(
+    age_group = pd.cut(welfare["age"], 
+                       bins=bin_cut,
+                       labels=(np.arange(12) * 10).astype(str) + "대")
+)
 
 # np.version.version
 # (np.arange(12) * 10).astype(str) + "대"
 
 age_income=welfare.dropna(subset="income") \
-                    .groupby("age_group", as_index=False) \
-                    .agg(mean_income = ("income", "mean"))
+    .groupby("age_group", as_index=False) \
+    .agg(mean_income = ("income", "mean"))
 
 age_income
 sns.barplot(data=age_income, x="age_group", y="mean_income")
@@ -124,6 +126,7 @@ plt.clf()
 # 안먹힘. 그래서 object 타입으로 바꿔 준 후 수행
 welfare["age_group"]=welfare["age_group"].astype("object")
 
+# 연령대와 성별에 따라 그룹화하여 각 그룹의 수입 합계 계산
 def my_f(vec):
     return vec.sum()
 
@@ -134,11 +137,11 @@ sex_age_income = \
     
 sex_age_income
 
-
+# 연령대별, 성별 상위 4% 수입 찾아보세요!
 sex_age_income = \
     welfare.dropna(subset="income") \
     .groupby(["age_group", "sex"], as_index=False) \
-    .agg(top4per_income=("income", lambda x: np.quantile(x, q=0.96)))
+    .agg(top4per_income=("income", lambda x: np.quantile(x, q=0.96))) # 분위수
     
 sex_age_income
 
@@ -147,8 +150,6 @@ sns.barplot(data=sex_age_income,
             hue="sex")
 plt.show()
 plt.clf()
-
-# 연령대별, 성별 상위 4% 수입 찾아보세요!
 
 import pandas as pd
 
@@ -185,7 +186,7 @@ job_income.head()
 
 # 그래프 만들기
 # 월급이 많은 직업 상위 10
-top10=job_income.sort_values('mean_income', ascending = False).head(10)
+p10=job_income.sort_values('mean_income', ascending=False).head(10)
 top10
 
 import matplotlib.pyplot as plt
@@ -234,23 +235,23 @@ plt.show()
 plt.clf()
 
 # 9-8 종교 유무에 따른 이혼율 (종교가 있으면 이혼을 덜할까?)
-# 혼자 하도록 ..
+welfare['religion']=np.where(welfare['religion'] == 1, 'yes', 'no')
 
+welfare['marriage']=np.where(welfare['marriage_type']==1, 'marriage',
+                    np.where(welfare['marriage_type']==3, 'divorce', 'etc'))
+
+# 이혼 여부 별 빈도
+n_divorce=welfare.groupby('marriage', as_index=False) \
+                            .agg(n=('marriage', 'count'))
+                            
 # p. 263
-
-welfare.info()
-welfare['marriage_type']
 
 df=welfare.query('marriage_type!=5') \
     .groupby('religion', as_index=False) \
     ['marriage_type'] \
     .value_counts(normalize=True) # 핵심: 비율 구하기
-df
 
-df=welfare.query('marriage_type!=5') \
-    .groupby('religion', as_index=False) \
-    ['marriage_type'] \
-    .value_counts(normalize=True)
+df['marriage_type'].value_counts
     
 # proportion에 100을 곱해서 백분율로 바꾸기
 df.query('marriage_type == 1') \

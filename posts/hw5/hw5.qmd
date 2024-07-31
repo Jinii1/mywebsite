@@ -7,8 +7,8 @@ jupyter: python3
 ---
 
 ## 챕터 9-2 설문조사 그래프에서 각 성별 95% 신뢰구간 계산후 그리기
-## norm.ppf() 사용해서 그릴 것. 모분산은 표본 분산을 사용해서 추정
-## 위 아래 수직 막대기로 표시 (아래 그림 참조)
+norm.ppf() 사용해서 그릴 것. 모분산은 표본 분산을 사용해서 추정
+위 아래 수직 막대기로 표시 (아래 그림 참조)
 
 **기존 그래프**
 ```{python}
@@ -44,29 +44,14 @@ plt.show()
 
 **groupby+add 이용하여 필요한 정보만 모으기**
 ```{python}
-sex_income = welfare.dropna(subset='income') \
-                    .groupby('sex', as_index=False) \
-                    .agg(mean_income = ('income', 'mean'),
-                         std_income=('income','std'),
-                         count_income=('income', 'count'))
-sex_income
+sex_income=welfare.dropna(subset='income') \
+                  .groupby('sex', as_index=False) \
+                  .agg(mean_income=('income', 'mean'),
+                        std_income=('income', 'std'),
+                        count_income=('income', 'count'))
+sex_income               
 
 ```
-
-**참고code**
-```{python}
-sex_income2 = welfare.dropna(subset = 'income') \
-                    .groupby('sex', as_index = False)[['income']] \
-                    .agg(['mean', 'std'])
-
-
-male_mean = sex_income2.iloc[1, 1]
-female_mean = sex_income2.iloc[0, 1]
-male_std = sex_income2.iloc[1, 2]
-female_std = sex_income2.iloc[0, 2]
-
-```
-
 
 **각 성별 loc, scale, 표본갯수 구하기**
 ```{python}
@@ -91,7 +76,8 @@ male_count
 **95% 신뢰구간 계산**
 ```{python}
 from scipy.stats import norm
-z_005=norm.ppf(0.95, loc=0, scale=1)
+z_005=norm.ppf(0.975, loc=0, scale=1)
+
 ci_female_1=female_mean - z_005 * female_std / np.sqrt(female_count)
 ci_female_2=female_mean + z_005 * female_std / np.sqrt(female_count)
 ci_female_1
