@@ -215,11 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="정규분포-mu-3-sigma-2-의-pdf를-그릴-것." class="level1">
 <h1>정규분포 mu = 3, sigma = 2 의 pdf를 그릴 것.</h1>
-<<<<<<< HEAD
-<div id="18a63026" class="cell" data-execution_count="1">
-=======
-<div id="d2fe4d57" class="cell" data-execution_count="1">
->>>>>>> e44d076ad94043e56fa885bf2a0bd9910023e616
+<div id="a1da2545" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -245,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="hw3-2_files/figure-html/cell-2-output-1.png" width="597" height="411" class="figure-img"></p>
+<p><img src="hw3-2_files/figure-html/cell-2-output-1.png" width="606" height="411" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -262,11 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="px-3" class="level1">
 <h1>1) P(X &lt; 3)</h1>
-<<<<<<< HEAD
-<div id="22ebe2e5" class="cell" data-execution_count="2">
-=======
-<div id="3150c80d" class="cell" data-execution_count="2">
->>>>>>> e44d076ad94043e56fa885bf2a0bd9910023e616
+<div id="30c132b0" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="dv">3</span>, loc <span class="op">=</span> <span class="dv">2</span>, scale <span class="op">=</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>np.float64(0.6305586598182363)</code></pre>
@@ -275,11 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="p2-x-5" class="level1">
 <h1>2) P(2 &lt; X &lt; 5)</h1>
-<<<<<<< HEAD
-<div id="6311db35" class="cell" data-execution_count="3">
-=======
-<div id="3b24e4d7" class="cell" data-execution_count="3">
->>>>>>> e44d076ad94043e56fa885bf2a0bd9910023e616
+<div id="0f991ffd" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="op">-</span> norm.cdf(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>np.float64(0.3413447460685429)</code></pre>
@@ -288,11 +276,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="px-3-or-x-7" class="level1">
 <h1>3) P(X &lt; 3 or X &gt; 7)</h1>
-<<<<<<< HEAD
-<div id="88d84f49" class="cell" data-execution_count="4">
-=======
-<div id="0724dda1" class="cell" data-execution_count="4">
->>>>>>> e44d076ad94043e56fa885bf2a0bd9910023e616
+<div id="c7bb642a" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="op">+</span> (<span class="dv">1</span> <span class="op">-</span> (norm.cdf(<span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">3</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>np.float64(0.678349012091051)</code></pre>
@@ -304,11 +288,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="상위-5에-해당하는-학생의-점수는" class="level1">
 <h1>상위 5%에 해당하는 학생의 점수는?</h1>
-<<<<<<< HEAD
-<div id="b721e96b" class="cell" data-execution_count="5">
-=======
-<div id="c91cdb40" class="cell" data-execution_count="5">
->>>>>>> e44d076ad94043e56fa885bf2a0bd9910023e616
+<div id="458701b2" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># X~M(30, 2^2)</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>norm.ppf(<span class="fl">0.95</span>, <span class="dv">30</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
