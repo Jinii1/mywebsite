@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jinii">
-<meta name="dcterms.date" content="2024-07-25">
+<meta name="dcterms.date" content="2024-07-30">
 
-<title>Jinii - LS 빅데이터 스쿨 Homework 3-2</title>
+<title>Jinii - LS 빅데이터 스쿨 Homework 5</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,7 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -102,6 +102,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -147,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">LS 빅데이터 스쿨 Homework 3-2</h1>
+      <h1 class="title">LS 빅데이터 스쿨 Homework 5</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">bigdata</div>
               </div>
@@ -167,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 25, 2024</p>
+        <p class="date">July 30, 2024</p>
       </div>
     </div>
     
@@ -183,17 +189,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#숙제-qmd" id="toc-숙제-qmd" class="nav-link active" data-scroll-target="#숙제-qmd">숙제 Qmd</a></li>
-  <li><a href="#정규분포-pdf-값을-계산하는-자신만의" id="toc-정규분포-pdf-값을-계산하는-자신만의" class="nav-link" data-scroll-target="#정규분포-pdf-값을-계산하는-자신만의">1. 정규분포 pdf 값을 계산하는 자신만의</a></li>
-  <li><a href="#파이썬-함수를-정의하고" id="toc-파이썬-함수를-정의하고" class="nav-link" data-scroll-target="#파이썬-함수를-정의하고">파이썬 함수를 정의하고,</a></li>
-  <li><a href="#정규분포-mu-3-sigma-2-의-pdf를-그릴-것." id="toc-정규분포-mu-3-sigma-2-의-pdf를-그릴-것." class="nav-link" data-scroll-target="#정규분포-mu-3-sigma-2-의-pdf를-그릴-것.">정규분포 mu = 3, sigma = 2 의 pdf를 그릴 것.</a></li>
-  <li><a href="#파이썬-scipy-패키지-사용해서-다음과-같은-확률을-구하시오." id="toc-파이썬-scipy-패키지-사용해서-다음과-같은-확률을-구하시오." class="nav-link" data-scroll-target="#파이썬-scipy-패키지-사용해서-다음과-같은-확률을-구하시오.">2. 파이썬 scipy 패키지 사용해서 다음과 같은 확률을 구하시오.</a></li>
-  <li><a href="#x-n2-32" id="toc-x-n2-32" class="nav-link" data-scroll-target="#x-n2-32">X ~ N(2, 3^2)</a></li>
-  <li><a href="#px-3" id="toc-px-3" class="nav-link" data-scroll-target="#px-3">1) P(X &lt; 3)</a></li>
-  <li><a href="#p2-x-5" id="toc-p2-x-5" class="nav-link" data-scroll-target="#p2-x-5">2) P(2 &lt; X &lt; 5)</a></li>
-  <li><a href="#px-3-or-x-7" id="toc-px-3-or-x-7" class="nav-link" data-scroll-target="#px-3-or-x-7">3) P(X &lt; 3 or X &gt; 7)</a></li>
-  <li><a href="#ls-빅데이터-스쿨-학생들의-중간고사-점수는-평균이-30이고-분산이-4인-정규분포를-따른다." id="toc-ls-빅데이터-스쿨-학생들의-중간고사-점수는-평균이-30이고-분산이-4인-정규분포를-따른다." class="nav-link" data-scroll-target="#ls-빅데이터-스쿨-학생들의-중간고사-점수는-평균이-30이고-분산이-4인-정규분포를-따른다.">3. LS 빅데이터 스쿨 학생들의 중간고사 점수는 평균이 30이고, 분산이 4인 정규분포를 따른다.</a></li>
-  <li><a href="#상위-5에-해당하는-학생의-점수는" id="toc-상위-5에-해당하는-학생의-점수는" class="nav-link" data-scroll-target="#상위-5에-해당하는-학생의-점수는">상위 5%에 해당하는 학생의 점수는?</a></li>
+  <li><a href="#챕터-9-2-설문조사-그래프에서-각-성별-95-신뢰구간-계산후-그리기" id="toc-챕터-9-2-설문조사-그래프에서-각-성별-95-신뢰구간-계산후-그리기" class="nav-link active" data-scroll-target="#챕터-9-2-설문조사-그래프에서-각-성별-95-신뢰구간-계산후-그리기">챕터 9-2 설문조사 그래프에서 각 성별 95% 신뢰구간 계산후 그리기</a></li>
+  <li><a href="#norm.ppf-사용해서-그릴-것.-모분산은-표본-분산을-사용해서-추정" id="toc-norm.ppf-사용해서-그릴-것.-모분산은-표본-분산을-사용해서-추정" class="nav-link" data-scroll-target="#norm.ppf-사용해서-그릴-것.-모분산은-표본-분산을-사용해서-추정">norm.ppf() 사용해서 그릴 것. 모분산은 표본 분산을 사용해서 추정</a></li>
+  <li><a href="#위-아래-수직-막대기로-표시-아래-그림-참조" id="toc-위-아래-수직-막대기로-표시-아래-그림-참조" class="nav-link" data-scroll-target="#위-아래-수직-막대기로-표시-아래-그림-참조">위 아래 수직 막대기로 표시 (아래 그림 참조)</a></li>
   </ul>
 </nav>
     </div>
@@ -204,115 +202,147 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="숙제-qmd" class="level1">
-<h1>숙제 Qmd</h1>
+<section id="챕터-9-2-설문조사-그래프에서-각-성별-95-신뢰구간-계산후-그리기" class="level2">
+<h2 class="anchored" data-anchor-id="챕터-9-2-설문조사-그래프에서-각-성별-95-신뢰구간-계산후-그리기">챕터 9-2 설문조사 그래프에서 각 성별 95% 신뢰구간 계산후 그리기</h2>
 </section>
-<section id="정규분포-pdf-값을-계산하는-자신만의" class="level1">
-<h1>1. 정규분포 pdf 값을 계산하는 자신만의</h1>
+<section id="norm.ppf-사용해서-그릴-것.-모분산은-표본-분산을-사용해서-추정" class="level2">
+<h2 class="anchored" data-anchor-id="norm.ppf-사용해서-그릴-것.-모분산은-표본-분산을-사용해서-추정">norm.ppf() 사용해서 그릴 것. 모분산은 표본 분산을 사용해서 추정</h2>
 </section>
-<section id="파이썬-함수를-정의하고" class="level1">
-<h1>파이썬 함수를 정의하고,</h1>
-</section>
-<section id="정규분포-mu-3-sigma-2-의-pdf를-그릴-것." class="level1">
-<h1>정규분포 mu = 3, sigma = 2 의 pdf를 그릴 것.</h1>
-<<<<<<< HEAD
-<div id="18a63026" class="cell" data-execution_count="1">
-=======
-<div id="d2fe4d57" class="cell" data-execution_count="1">
->>>>>>> e44d076ad94043e56fa885bf2a0bd9910023e616
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_normal_pdf(x, mu, sigma):</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    part_1 <span class="op">=</span> (sigma <span class="op">*</span> math.sqrt(<span class="dv">2</span> <span class="op">*</span> math.pi)) <span class="op">**</span> <span class="op">-</span><span class="dv">1</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    part_2 <span class="op">=</span> (<span class="op">-</span>(x <span class="op">-</span> mu)<span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> <span class="dv">2</span> <span class="op">*</span> sigma <span class="op">**</span> <span class="dv">2</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> part_1 <span class="op">*</span> part_2</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> norm.rvs(loc <span class="op">=</span> <span class="dv">3</span>, scale <span class="op">=</span> <span class="dv">2</span>, size <span class="op">=</span> <span class="dv">1000</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>sns.histplot(x, stat <span class="op">=</span> <span class="st">'density'</span>, color <span class="op">=</span> <span class="st">'skyblue'</span>)</span>
+<section id="위-아래-수직-막대기로-표시-아래-그림-참조" class="level2">
+<h2 class="anchored" data-anchor-id="위-아래-수직-막대기로-표시-아래-그림-참조">위 아래 수직 막대기로 표시 (아래 그림 참조)</h2>
+<p><strong>기존 그래프</strong></p>
+<div id="d72fc180" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>raw_welfare<span class="op">=</span>pd.read_spss(<span class="st">'../../Koweps_hpwc14_2019_beta2 (1).sav'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>raw_welfare</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>welfare<span class="op">=</span>raw_welfare.copy()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>welfare<span class="op">=</span>welfare.rename(columns <span class="op">=</span> {<span class="st">"h14_g3"</span>: <span class="st">"sex"</span>, <span class="st">"p1402_8aq1"</span>: <span class="st">"income"</span>})</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>welfare<span class="op">=</span>welfare[[<span class="st">"sex"</span>, <span class="st">"income"</span>]]</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>welfare[<span class="st">"sex"</span>] <span class="op">=</span> np.where(welfare[<span class="st">"sex"</span>] <span class="op">==</span> <span class="dv">1</span>,<span class="st">'male'</span>, <span class="st">'female'</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>welfare[<span class="st">"sex"</span>].value_counts()</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>xmin, xmax <span class="op">=</span> (x.<span class="bu">min</span>(), x.<span class="bu">max</span>())</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>x_values <span class="op">=</span> np.linspace(xmin, xmax, <span class="dv">100</span>)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>pdf_values <span class="op">=</span> norm.pdf(x_values, loc <span class="op">=</span> <span class="dv">3</span>, scale <span class="op">=</span> <span class="dv">2</span>)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>plt.plot(x_values, pdf_values, color <span class="op">=</span> <span class="st">'pink'</span>, linewidth <span class="op">=</span> <span class="dv">2</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>welfare[<span class="st">"income"</span>].describe()</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>welfare[<span class="st">"income"</span>].isna().<span class="bu">sum</span>()</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>sex_income <span class="op">=</span> welfare.dropna(subset<span class="op">=</span><span class="st">'income'</span>) <span class="op">\</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                    .groupby(<span class="st">'sex'</span>, as_index<span class="op">=</span><span class="va">False</span>) <span class="op">\</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                    .agg(mean_income <span class="op">=</span> (<span class="st">'income'</span>, <span class="st">'mean'</span>))</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>sex_income, x<span class="op">=</span><span class="st">"sex"</span>, y<span class="op">=</span><span class="st">"mean_income"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>            hue<span class="op">=</span><span class="st">"sex"</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="hw3-2_files/figure-html/cell-2-output-1.png" width="597" height="411" class="figure-img"></p>
+<p><img src="hw5_files/figure-html/cell-2-output-1.png" width="593" height="429" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>groupby+add 이용하여 필요한 정보만 모으기</strong></p>
+<div id="86c2f422" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sex_income <span class="op">=</span> welfare.dropna(subset<span class="op">=</span><span class="st">'income'</span>) <span class="op">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                    .groupby(<span class="st">'sex'</span>, as_index<span class="op">=</span><span class="va">False</span>) <span class="op">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                    .agg(mean_income <span class="op">=</span> (<span class="st">'income'</span>, <span class="st">'mean'</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                         std_income<span class="op">=</span>(<span class="st">'income'</span>,<span class="st">'std'</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                         count_income<span class="op">=</span>(<span class="st">'income'</span>, <span class="st">'count'</span>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>sex_income</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">mean_income</th>
+<th data-quarto-table-cell-role="th">std_income</th>
+<th data-quarto-table-cell-role="th">count_income</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>female</td>
+<td>186.293096</td>
+<td>132.057402</td>
+<td>2245</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>male</td>
+<td>349.037571</td>
+<td>217.862254</td>
+<td>2289</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><strong>각 성별 loc, scale, 표본갯수 구하기</strong></p>
+<div id="f93ceca6" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>female_mean<span class="op">=</span>sex_income.iloc[<span class="dv">0</span>,<span class="dv">1</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>male_mean<span class="op">=</span>sex_income.iloc[<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>female_mean</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>male_mean</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>female_std<span class="op">=</span>sex_income.iloc[<span class="dv">0</span>,<span class="dv">2</span>]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>male_std<span class="op">=</span>sex_income.iloc[<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>female_std</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>male_std</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>female_count<span class="op">=</span>sex_income.iloc[<span class="dv">0</span>,<span class="dv">3</span>]</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>male_count<span class="op">=</span>sex_income.iloc[<span class="dv">1</span>,<span class="dv">3</span>]</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>female_count</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>male_count</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>np.int64(2289)</code></pre>
+</div>
+</div>
+<p><strong>95% 신뢰구간 계산</strong></p>
+<div id="c6d8b19d" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>z_005<span class="op">=</span>norm.ppf(<span class="fl">0.95</span>, loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ci_female_1<span class="op">=</span>female_mean <span class="op">-</span> z_005 <span class="op">*</span> female_std <span class="op">/</span> np.sqrt(female_count)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>ci_female_2<span class="op">=</span>female_mean <span class="op">+</span> z_005 <span class="op">*</span> female_std <span class="op">/</span> np.sqrt(female_count)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>ci_female_1</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>ci_female_2</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>ci_male_1<span class="op">=</span>male_mean <span class="op">-</span> z_005 <span class="op">*</span> male_std <span class="op">/</span> np.sqrt(male_count)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>ci_male_2<span class="op">=</span>male_mean <span class="op">+</span> z_005 <span class="op">*</span> male_std <span class="op">/</span> np.sqrt(male_count)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>ci_male_1</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>ci_male_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>np.float64(356.5276492215637)</code></pre>
+</div>
+</div>
+<p><strong>신뢰구간을 위 그래프에 검정색 막대기로 표시</strong></p>
+<div id="13556cb7" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sns.barplot(data <span class="op">=</span> sex_income, x <span class="op">=</span> <span class="st">'sex'</span>, y <span class="op">=</span> <span class="st">'mean_income'</span>, hue <span class="op">=</span> <span class="st">'sex'</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">0</span>, <span class="dv">0</span>], [ci_female_1, ci_female_2], color<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">1</span>, <span class="dv">1</span>], [ci_male_1, ci_male_2], color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plt.clf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw5_files/figure-html/cell-6-output-1.png" width="593" height="429" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
-</div>
-</div>
-</section>
-<section id="파이썬-scipy-패키지-사용해서-다음과-같은-확률을-구하시오." class="level1">
-<h1>2. 파이썬 scipy 패키지 사용해서 다음과 같은 확률을 구하시오.</h1>
-</section>
-<section id="x-n2-32" class="level1">
-<h1>X ~ N(2, 3^2)</h1>
-</section>
-<section id="px-3" class="level1">
-<h1>1) P(X &lt; 3)</h1>
-<<<<<<< HEAD
-<div id="22ebe2e5" class="cell" data-execution_count="2">
-=======
-<div id="3150c80d" class="cell" data-execution_count="2">
->>>>>>> e44d076ad94043e56fa885bf2a0bd9910023e616
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="dv">3</span>, loc <span class="op">=</span> <span class="dv">2</span>, scale <span class="op">=</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>np.float64(0.6305586598182363)</code></pre>
-</div>
-</div>
-</section>
-<section id="p2-x-5" class="level1">
-<h1>2) P(2 &lt; X &lt; 5)</h1>
-<<<<<<< HEAD
-<div id="6311db35" class="cell" data-execution_count="3">
-=======
-<div id="3b24e4d7" class="cell" data-execution_count="3">
->>>>>>> e44d076ad94043e56fa885bf2a0bd9910023e616
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="op">-</span> norm.cdf(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>np.float64(0.3413447460685429)</code></pre>
-</div>
-</div>
-</section>
-<section id="px-3-or-x-7" class="level1">
-<h1>3) P(X &lt; 3 or X &gt; 7)</h1>
-<<<<<<< HEAD
-<div id="88d84f49" class="cell" data-execution_count="4">
-=======
-<div id="0724dda1" class="cell" data-execution_count="4">
->>>>>>> e44d076ad94043e56fa885bf2a0bd9910023e616
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="op">+</span> (<span class="dv">1</span> <span class="op">-</span> (norm.cdf(<span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">3</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>np.float64(0.678349012091051)</code></pre>
-</div>
-</div>
-</section>
-<section id="ls-빅데이터-스쿨-학생들의-중간고사-점수는-평균이-30이고-분산이-4인-정규분포를-따른다." class="level1">
-<h1>3. LS 빅데이터 스쿨 학생들의 중간고사 점수는 평균이 30이고, 분산이 4인 정규분포를 따른다.</h1>
-</section>
-<section id="상위-5에-해당하는-학생의-점수는" class="level1">
-<h1>상위 5%에 해당하는 학생의 점수는?</h1>
-<<<<<<< HEAD
-<div id="b721e96b" class="cell" data-execution_count="5">
-=======
-<div id="c91cdb40" class="cell" data-execution_count="5">
->>>>>>> e44d076ad94043e56fa885bf2a0bd9910023e616
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># X~M(30, 2^2)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>norm.ppf(<span class="fl">0.95</span>, <span class="dv">30</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>np.float64(33.28970725390295)</code></pre>
 </div>
 </div>
 
