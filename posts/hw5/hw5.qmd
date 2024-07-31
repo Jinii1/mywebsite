@@ -53,6 +53,21 @@ sex_income
 
 ```
 
+**참고code**
+```{python}
+sex_income2 = welfare.dropna(subset = 'income') \
+                    .groupby('sex', as_index = False)[['income']] \
+                    .agg(['mean', 'std'])
+
+
+male_mean = sex_income2.iloc[1, 1]
+female_mean = sex_income2.iloc[0, 1]
+male_std = sex_income2.iloc[1, 2]
+female_std = sex_income2.iloc[0, 2]
+
+```
+
+
 **각 성별 loc, scale, 표본갯수 구하기**
 ```{python}
 

@@ -5,7 +5,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-raw_welfare=pd.read_spss('data/Koweps_hpwc14_2019_beta2 (1).sav')
+raw_welfare=pd.read_spss('Koweps_hpwc14_2019_beta2 (1).sav')
 raw_welfare
 
 welfare=raw_welfare.copy()
@@ -61,58 +61,6 @@ sns.barplot(data=sex_income, x="sex", y="mean_income",
 plt.show()
 plt.clf()
 
-
-===================================================================================
-
-# 숙제: 위 그래프에서 각 성별 95% 신뢰구간 계산후 그리기
-# 위 아래 검정색 막대기로 표시
-
-sex_income = welfare.dropna(subset='income') \
-                    .groupby('sex', as_index=False) \
-                    .agg(mean_income = ('income', 'mean'),
-                         std_income=('income','std'),
-                         count_income=('income', 'count'))
-sex_income
-
-# 각 성별 loc 구하기
-female_mean=sex_income.iloc[0,1]
-male_mean=sex_income.iloc[1,1]
-female_mean
-male_mean
-
-# 각 성별 scale 구하기
-female_std=sex_income.iloc[0,2]
-male_std=sex_income.iloc[1,2]
-female_std
-male_std
-
-# 각 성별 표본갯수 구하기
-female_count=sex_income.iloc[0,3]
-male_count=sex_income.iloc[1,3]
-female_count
-male_count
-
-# 95% 신뢰구간 계산
-from scipy.stats import norm
-z_005=norm.ppf(0.95, loc=0, scale=1)
-ci_female_1=female_mean - z_005 * female_std / np.sqrt(female_count)
-ci_female_2=female_mean + z_005 * female_std / np.sqrt(female_count)
-ci_female_1
-ci_female_2
-
-ci_male_1=male_mean - z_005 * male_std / np.sqrt(male_count)
-ci_male_2=male_mean + z_005 * male_std / np.sqrt(male_count)
-ci_male_1
-ci_male_2
-
-# 신뢰구간을 위 그래프에 검정색 막대기로 표시
-sns.barplot(data = sex_income, x = 'sex', y = 'mean_income', hue = 'sex')
-plt.plot([0, 0], [ci_female_1, ci_female_2], color='black')
-plt.plot([1, 1], [ci_male_1, ci_male_2], color='red')
-plt.show()
-plt.clf()
-
-===================================================================================
 # 9-3 나이와 월급의 관계
 
 # 1. 나이 변수 검토 및 전처리
@@ -190,15 +138,12 @@ sex_age_income
 sex_age_income = \
     welfare.dropna(subset="income") \
     .groupby(["age_group", "sex"], as_index=False) \
-    .agg(top4per_income=("income", lambda x: np.quantile(x, q=0.96))
+    .agg(top4per_income=("income", lambda x: np.quantile(x, q=0.96)))
     
-    
-
-
 sex_age_income
 
 sns.barplot(data=sex_age_income,
-            x="age_group", y="mean_income", 
+            x="age_group", y="top4per_income", 
             hue="sex")
 plt.show()
 plt.clf()
@@ -214,3 +159,99 @@ data = {
     'sex': ['M', 'F', 'M', 'F', None, 'M', 'F', 'M', 'F']
 }
 welfare = pd.DataFrame(data)
+====================================================================================================
+# 0731
+# 9-6 직업별 월급 차이
+# 1. 작업 변수 검토 및 전처리
+# code_job 변수의 값은 직업 코드를 의미 -> 코드가 어떤 직업을 의미하는지 몰라서
+welfare['code_job']
+welfare['code_job'].value_counts()
+
+# 코드북의 직업분류코드 목록을 이용해 직업 이름을 나타낸 변수 만듦
+list_job=pd.read_excel('C:/Users/USER/Documents/LS빅데이터스쿨/mywebsite/posts/hw5/Koweps_Codebook_2019.xlsx', sheet_name='직종코드')
+list_job.head()
+
+# merge()를 이용해 list_job을 welfare에 결합
+welfare=welfare.merge(list_job,
+                        how='left', on='code_job')
+welfare.dropna(subset=['job', 'income'])[['income', 'job']]
+
+# 2. 직업별 월급 차이 분석
+# 직업별 월급 평균표 만들기
+job_income=welfare.dropna(subset=['job', 'income']) \
+                  .groupby('job', as_index=False) \
+                  .agg(mean_income=('income', 'mean'))
+job_income.head()
+
+# 그래프 만들기
+# 월급이 많은 직업 상위 10
+top10=job_income.sort_values('mean_income', ascending = False).head(10)
+top10
+
+import matplotlib.pyplot as plt
+# 한글 잘 보이게 맑은 고딕 폰트 설정
+plt.rcParams.update({'font.family': 'Malgun Gothic'})
+
+sns.barplot(data=top10, y='job', x='mean_income', hue='job')
+plt.show()
+plt.clf()
+
+# 월급이 적은 직업 상위 10
+bottom10=job_income.sort_values('mean_income', ascending = True).head(10)
+bottom10
+
+sns.barplot(data=bottom10, y='job', x='mean_income', hue='job') \
+   .set(xlim=[0, 800])
+plt.show()
+plt.clf()
+
+# 9-7 성별 직업 빈도 (성별에 따라 어떤 직업이 가장 많을까?)
+
+# 남자
+job_male=welfare.dropna(subset='job') \
+                .query('sex == "male"') \
+                .groupby('job', as_index=False) \
+                .agg(n=('job', 'count')) \
+                .sort_values('n', ascending=False) \
+                .head(10)
+job_male
+
+sns.barplot(data=job_male, y='job', x='n', hue='job').set(xlim=[0, 500])
+plt.show()
+plt.clf()
+
+# 여자
+job_female=welfare.dropna(subset='job') \
+                .query('sex == "female"') \
+                .groupby('job', as_index=False) \
+                .agg(n=('job', 'count')) \
+                .sort_values('n', ascending=False) \
+                .head(10)
+job_female
+
+sns.barplot(data=job_female, y='job', x='n', hue='job').set(xlim=[0, 500])
+plt.show()
+plt.clf()
+
+# 9-8 종교 유무에 따른 이혼율 (종교가 있으면 이혼을 덜할까?)
+# 혼자 하도록 ..
+
+# p. 263
+
+welfare.info()
+welfare['marriage_type']
+
+df=welfare.query('marriage_type!=5') \
+    .groupby('religion', as_index=False) \
+    ['marriage_type'] \
+    .value_counts(normalize=True) # 핵심: 비율 구하기
+df
+
+df=welfare.query('marriage_type!=5') \
+    .groupby('religion', as_index=False) \
+    ['marriage_type'] \
+    .value_counts(normalize=True)
+    
+# proportion에 100을 곱해서 백분율로 바꾸기
+df.query('marriage_type == 1') \
+    .assign(proportion=df['proportion']*100).round(1)
