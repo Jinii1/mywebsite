@@ -165,6 +165,7 @@ welfare = pd.DataFrame(data)
 # 9-6 직업별 월급 차이
 # 1. 작업 변수 검토 및 전처리
 # code_job 변수의 값은 직업 코드를 의미 -> 코드가 어떤 직업을 의미하는지 몰라서
+
 welfare['code_job']
 welfare['code_job'].value_counts()
 
@@ -186,7 +187,7 @@ job_income.head()
 
 # 그래프 만들기
 # 월급이 많은 직업 상위 10
-p10=job_income.sort_values('mean_income', ascending=False).head(10)
+top10=job_income.sort_values('mean_income', ascending=False).head(10)
 top10
 
 import matplotlib.pyplot as plt
@@ -243,9 +244,8 @@ welfare['marriage']=np.where(welfare['marriage_type']==1, 'marriage',
 # 이혼 여부 별 빈도
 n_divorce=welfare.groupby('marriage', as_index=False) \
                             .agg(n=('marriage', 'count'))
-                            
-# p. 263
 
+# 수업시간코드 
 df=welfare.query('marriage_type!=5') \
     .groupby('religion', as_index=False) \
     ['marriage_type'] \
@@ -256,3 +256,19 @@ df['marriage_type'].value_counts
 # proportion에 100을 곱해서 백분율로 바꾸기
 df.query('marriage_type == 1') \
     .assign(proportion=df['proportion']*100).round(1)
+
+# p. 263
+# 종교 유무에 따른 이혼율표 만들기
+rel_div=welfare.query('marriage != "etc"') \
+                .groupby('religion', as_index=False) \
+                ['marriage'] \
+                .value_counts(normalize=True)
+rel_div
+
+rel_div=rel_div.query('marriage=="divorce"') \
+               .assign(proportion=rel_div['proportion']*100) \
+               .round(1)
+
+sns.barplot(data=rel_div, x='religion', y='proportion')
+plt.show()
+plt.clf()
