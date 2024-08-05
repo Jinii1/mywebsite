@@ -45,8 +45,8 @@ p_value
 ```{python}
 Cl_1 = np.mean(x) - t.ppf(0.975, df = 14) * (np.std(x, ddof=1))/np.sqrt(15)
 Cl_2 = np.mean(x) + t.ppf(0.975, df = 14) * (np.std(x, ddof=1))/np.sqrt(15)
-Cl_1
-Cl_2
+print(Cl_1)
+print(Cl_2)
 
 ```
 
