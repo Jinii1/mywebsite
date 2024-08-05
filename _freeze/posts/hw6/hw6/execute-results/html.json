@@ -1,0 +1,12 @@
+{
+  "hash": "386fefb543ffd6f0a7067e6a5d290226",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: LS 빅데이터 스쿨 Homework 6\nauthor: Jinii\ndate: '2024-08-05'\ncategories:\n  - bigdata\n---\n\n## 신형 자동차의 에너지 소비효율 등급\n\n슬통 자동자는 매해 출시되는 신형 자동차의 에너지 소비효율 등급을 1등급으로 유지하고 있다. 22\n년 개발된 신형 모델이 한국 자동차 평가원에서 설정한 에너지 소비 효율등급 1등급을 받을 수 있을지\n검정하려한다. 평가원에 따르면 1등급의 기준은 평균 복합 에너지 소비효율이 16.0 이상인 경우 부여\n한다고 한다.\n다음은 신형 자동차 15대의 복합 에너지소비효율 측정한 결과이다.\n15.078, 15.752, 15.549, 15.56, 16.098, 13.277, 15.462, 16.116, 15.214, 16.93, 14.118, 14.927,\n15.382, 16.709, 16.804\n표본에 의하여 판단해볼때, 현대자동차의 신형 모델은 에너지 효율 1등급으로 판단할 수 있을지\n판단해보시오. (유의수준 1%로 설정)\n\n# 2. 검정을 위한 가설을 명확하게 서술하시오.\nH0(귀무가설) Mu >= 16\nHA(대립가설) Mu < 16\n\n# 3. 검정통계량 계산하시오.\n\n::: {#007a542c .cell execution_count=1}\n``` {.python .cell-code}\nimport numpy as np\n\nx= np.array([15.078, 15.752, 15.549, 15.56, 16.098, 13.277, 15.462, 16.116, 15.214, 16.93, 14.118, 14.927,\n15.382, 16.709, 16.804])\nt_value=(np.mean(x)-16)/(np.std(x, ddof=1)/np.sqrt(15))\nt_value\n```\n\n::: {.cell-output .cell-output-display execution_count=1}\n```\nnp.float64(-1.8500447456376756)\n```\n:::\n:::\n\n\n# 4. p‑value을 구하세요.\n\n::: {#bf66ca6e .cell execution_count=2}\n``` {.python .cell-code}\nfrom scipy.stats import t\np_value = t.cdf(t_value, df=14)\np_value\n```\n\n::: {.cell-output .cell-output-display execution_count=2}\n```\nnp.float64(0.042762417664207845)\n```\n:::\n:::\n\n\n# 6. 현대자동차의 신형 모델의 평균 복합 에너지 소비효율에 대하여 95% 신뢰구간을 구해보세요.\n\n::: {#c67e1863 .cell execution_count=3}\n``` {.python .cell-code}\nCl_1 = np.mean(x) - t.ppf(0.975, df = 14) * (np.std(x, ddof=1))/np.sqrt(15)\nCl_2 = np.mean(x) + t.ppf(0.975, df = 14) * (np.std(x, ddof=1))/np.sqrt(15)\nCl_1\nCl_2\n```\n\n::: {.cell-output .cell-output-display execution_count=3}\n```\nnp.float64(16.074602426326933)\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "hw6_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
