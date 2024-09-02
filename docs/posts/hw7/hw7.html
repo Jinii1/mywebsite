@@ -213,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="adp-실기-시험의-통계파트-표준점수의-밀도함수를-그려보세요." class="level1">
 <h1>1. ADP 실기 시험의 통계파트 표준점수의 밀도함수를 그려보세요.</h1>
-<div id="e6ea980a" class="cell" data-execution_count="1">
+<div id="c82a4896" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -232,7 +232,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="adp-수험생을-임의로-1명을-선택하여-통계-점수를-조회했을때-45점-보다-높은-점수를-받았을-확률을-구하세요." class="level1">
 <h1>2. ADP 수험생을 임의로 1명을 선택하여 통계 점수를 조회했을때 45점 보다 높은 점수를 받았을 확률을 구하세요.</h1>
-<div id="f0ec2291" class="cell" data-execution_count="2">
+<div id="0e89b0c6" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">-</span>norm.cdf(<span class="dv">45</span>, loc<span class="op">=</span><span class="dv">30</span>, scale<span class="op">=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>np.float64(0.0013498980316301035)</code></pre>
@@ -241,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="슬통이는-상위-10에-해당하는-점수를-얻었다고-한다면-슬통이의-점수는-얼마인지-계산해보세요." class="level1">
 <h1>3. 슬통이는 상위 10%에 해당하는 점수를 얻었다고 한다면, 슬통이의 점수는 얼마인지 계산해보세요.</h1>
-<div id="d0ab9aa5" class="cell" data-execution_count="3">
+<div id="b2bf78df" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>norm.ppf(<span class="fl">0.9</span>, loc<span class="op">=</span><span class="dv">30</span>, scale<span class="op">=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>np.float64(36.407757827723)</code></pre>
@@ -250,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="슬기로운-통계생활의-해당-회차-수강생은-16명이었다고-한다.-16명의-통계-파트-점수를-평균내었을-때-이-평균값이-따르는-분포의-확률밀도-함수를-1번의-그래프와-겹쳐-그려보세요." class="level1">
 <h1>4. 슬기로운 통계생활의 해당 회차 수강생은 16명이었다고 한다. 16명의 통계 파트 점수를 평균내었을 때, 이 평균값이 따르는 분포의 확률밀도 함수를 1번의 그래프와 겹쳐 그려보세요.</h1>
-<div id="0bec5441" class="cell" data-execution_count="4">
+<div id="8c884dde" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 기존 그래프</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>np.arange(<span class="dv">15</span>, <span class="dv">45</span>, <span class="fl">0.1</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>y<span class="op">=</span>norm.pdf(x, loc<span class="op">=</span><span class="dv">30</span>, scale<span class="op">=</span><span class="dv">5</span>)</span>
@@ -270,7 +270,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="슬기로운-통계생활-adp-반-수강생들의-통계점수를-평균내었다고-할-때-이-값이-38점보다-높게-나올-확률을-구하세요." class="level1">
 <h1>5. 슬기로운 통계생활 ADP 반 수강생들의 통계점수를 평균내었다고 할 때, 이 값이 38점보다 높게 나올 확률을 구하세요.</h1>
-<div id="c6759396" class="cell" data-execution_count="5">
+<div id="b30e35a4" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">-</span>norm.cdf(<span class="dv">38</span>, loc<span class="op">=</span><span class="dv">30</span>, scale<span class="op">=</span><span class="dv">5</span><span class="op">/</span>np.sqrt(<span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>np.float64(7.76885222819601e-11)</code></pre>
@@ -283,7 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="자유도가-4인-카이제곱분포의-확률밀도함수를-그려보세요." class="level1">
 <h1>1. 자유도가 4인 카이제곱분포의 확률밀도함수를 그려보세요.</h1>
-<div id="5bec3cd2" class="cell" data-execution_count="6">
+<div id="b1130bd5" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> chi2, norm</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>np.linspace(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">1000</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>pdf<span class="op">=</span>chi2.pdf(x, <span class="dv">4</span>)</span>
@@ -299,7 +299,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="다음의-확률을-구해보세요.-𝑃-3-𝑋-5" class="level1">
 <h1>2. 다음의 확률을 구해보세요. 𝑃 (3 ≤ 𝑋 ≤ 5)</h1>
-<div id="33521f11" class="cell" data-execution_count="7">
+<div id="9051f703" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>chi2.cdf(<span class="dv">5</span>, <span class="dv">4</span>) <span class="op">-</span> chi2.cdf(<span class="dv">3</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>np.float64(0.27052790518742903)</code></pre>
@@ -308,7 +308,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="자유도가-4인-카이제곱분포에서-크기가-1000인-표본을-뽑은-후-히스토그램을-그려보세요." class="level1">
 <h1>3. 자유도가 4인 카이제곱분포에서 크기가 1000인 표본을 뽑은 후, 히스토그램을 그려보세요.</h1>
-<div id="58cb4e79" class="cell" data-execution_count="8">
+<div id="97a02607" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">20240902</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>chi2.rvs(<span class="dv">4</span>, size<span class="op">=</span><span class="dv">1000</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.hist(data, bins<span class="op">=</span><span class="dv">50</span>, density<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">'black'</span>, edgecolor<span class="op">=</span><span class="st">'blue'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -347,7 +347,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="자유도가-4인-카이제곱분포를-따르는-확률변수에서-나올-수-있는-값-중-상위-5에-해당하는-값은-얼마인지-계산해보세요." class="level1">
 <h1>4. 자유도가 4인 카이제곱분포를 따르는 확률변수에서 나올 수 있는 값 중 상위 5%에 해당하는 값은 얼마인지 계산해보세요.</h1>
-<div id="5c6d376b" class="cell" data-execution_count="9">
+<div id="5d268db9" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>chi2.ppf(<span class="fl">0.95</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>np.float64(9.487729036781154)</code></pre>
@@ -356,7 +356,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="번에서-뽑힌-표본값들-중-상위-5에-위치한-표본의-값은-얼마인가요" class="level1">
 <h1>5. 3번에서 뽑힌 표본값들 중 상위 5%에 위치한 표본의 값은 얼마인가요?</h1>
-<div id="fffc95df" class="cell" data-execution_count="10">
+<div id="eee1fd95" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>np.percentile(data, <span class="dv">95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>np.float64(9.853854661290491)</code></pre>
@@ -366,7 +366,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="평균이-3-표준편차가-2인-정규분포를-따르는-확률변수에서-크기가-20인-표본-𝑥1-𝑥20을-뽑은-후-표본분산을-계산한-것을-𝑠21이라-생각해보죠.-다음을-수행해보세요" class="level1">
 <h1>6. 평균이 3, 표준편차가 2인 정규분포를 따르는 확률변수에서 크기가 20인 표본, 𝑥1, …, 𝑥20,을 뽑은 후 표본분산을 계산한 것을 𝑠21이라 생각해보죠. 다음을 수행해보세요!</h1>
 <p>• 같은 방법으로 500개의 𝑠2 들, 𝑠21 , 𝑠22 , …, 𝑠2 500 발생시킵니다. • 발생한 500개의 𝑠2 들 각각에 4.75를 곱하고, 그것들의 히스토그램을 그려보세요. (히스토그램 을 그릴 때 probability = TRUE 옵션을 사용해서 그릴 것) • 위에서 그린 히스토그램에 자유도가 19인 카이제곱분포 확률밀도함수를 겹쳐그려보세요.</p>
-<div id="9dca396a" class="cell" data-execution_count="11">
+<div id="63814a9f" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">20240902</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>var_samples<span class="op">=</span>[]</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
